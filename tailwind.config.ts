@@ -10,6 +10,27 @@ module.exports = {
   ],
   theme: {
     fontSize: {
+      "7xl": [
+        "50px",
+        {
+          lineHeight: "60px",
+          fontWeight: "500",
+        },
+      ],
+      "7xl-600": [
+        "50px",
+        {
+          lineHeight: "60px",
+          fontWeight: "600",
+        },
+      ],
+      "6xl": [
+        "45px",
+        {
+          lineHeight: "50px",
+          fontWeight: "500",
+        },
+      ],
       "5xl": [
         "40px",
         {
@@ -71,6 +92,13 @@ module.exports = {
         {
           lineHeight: "16px",
           fontWeight: "500",
+        },
+      ],
+      "base-400": [
+        "14px",
+        {
+          lineHeight: "17px",
+          fontWeight: "400",
         },
       ],
     },

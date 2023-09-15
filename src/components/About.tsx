@@ -58,7 +58,7 @@ const About: React.FC = () => {
 				src="/background-blue-2.webp"
 				width={379}
 				height={761}
-				alt="background blue"
+				alt=""
 			/>
 		</section>
 	)

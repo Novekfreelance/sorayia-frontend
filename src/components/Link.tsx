@@ -22,7 +22,6 @@ const Links = [
 	},
 ];
 
-// Component for rendering navigation links
 export const NavLinks = () => {
   const pathname = usePathname();
   

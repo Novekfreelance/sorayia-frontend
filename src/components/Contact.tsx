@@ -2,7 +2,14 @@ import Image from 'next/image';
 import SectionTitle from "./ui/SectionTitle";
 import ContactForm from './ui/ContactForm';
 
-const Contact = () => {
+type Props = {
+	backgroundImageSrc: string,
+	imageClassName?: string;
+	imageWidth?: number,
+	imageHeight?: number,
+}
+
+const Contact = ({ backgroundImageSrc, imageClassName, imageWidth, imageHeight } :Props) => {
 	return (
 		<section id='contact-us' className='relative z-[2] my-20'>
 			<SectionTitle>Contact Us</SectionTitle>
@@ -28,10 +35,10 @@ const Contact = () => {
 				</div>
 			</div>
 			<Image
-				className="absolute top-[-50%] right-0 z-[1] pointer-events-none"
-				src="/background-blue-3.webp"
-				width={379}
-				height={761}
+				className={imageClassName}
+				src={backgroundImageSrc}
+				width={imageWidth}
+				height={imageHeight}
 				alt=""
 			/>
 		</section >
