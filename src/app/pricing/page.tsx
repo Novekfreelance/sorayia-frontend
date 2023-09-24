@@ -12,7 +12,7 @@ const Pricing = () => {
   return (
     <main>
       <Header className="relative">
-        <Navbar className="relative z-[2] bg-white" />
+        <Navbar className="z-[2] bg-white" />
         <Image
           className="absolute left-0 z-[-1] translate-y-[-60%] pointer-events-none"
           src="/background-blue-2.webp"

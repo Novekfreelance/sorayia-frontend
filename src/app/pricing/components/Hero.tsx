@@ -2,7 +2,7 @@ import Container from "@/components/ui/Container"
 
 const Hero = () => {
 	return (
-		<Container>
+		<Container className="mt-32">
 			<h1 className="text-4xl text-primary text-center mb-5">
           Unlock the Power of 3D virtual Influencers
         </h1>

@@ -15,7 +15,7 @@ export default function Home() {
         <Navbar />
         <HeroBanner />
         <Image
-          className="absolute top-0 right-0 pointer-events-none"
+          className="absolute -top-[50%] right-0 pointer-events-none"
           src="/background-blue-3.webp"
           alt=""
           width={358}

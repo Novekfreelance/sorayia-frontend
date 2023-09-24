@@ -1,6 +1,6 @@
 import Container from "@/components/ui/Container";
 import FooterBottomSection from "@/components/ui/FooterBottomSection";
-import SocialLink from "@/components/ui/SocialLink";
+import {SocialLinkBtn} from "@/components/ui/CustumsBtn";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
@@ -37,30 +37,30 @@ export default function NotFound() {
         </div>
         <div className="fixed bottom-0 -left-2/4 translate-x-2/4 w-full">
           <ul className="flex gap-4 justify-center">
-            <SocialLink href="#">
+            <SocialLinkBtn href="#">
               <Image
                 src="/facebook.webp"
                 alt="facebook logo"
                 width={22}
                 height={22}
               />
-            </SocialLink>
-            <SocialLink href="#">
+            </SocialLinkBtn>
+            <SocialLinkBtn href="#">
               <Image
                 src="/twitter.webp"
                 alt="twitter logo"
                 width={22}
                 height={22}
               />
-            </SocialLink>
-            <SocialLink href="#">
+            </SocialLinkBtn>
+            <SocialLinkBtn href="#">
               <Image
                 src="/linkedin.webp"
                 alt="linkedin logo"
                 width={22}
                 height={22}
               />
-            </SocialLink>
+            </SocialLinkBtn>
           </ul>
           <FooterBottomSection className="max-w-[90%] mx-auto" />
         </div>

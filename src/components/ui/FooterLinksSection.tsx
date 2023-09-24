@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FooterAuthLinks, LegalFooterLinks, NavFooterLinks } from "../Link";
-import SocialLink from "./SocialLink";
+import {SocialLinkBtn} from "./CustumsBtn";
 import NewsLetterForm from "./NewsLetterForm";
 
 const FooterLinksSection = () => {
@@ -24,30 +24,30 @@ const FooterLinksSection = () => {
 					</li>
 					<li className="text-xl-500 text-primary">Social Media</li>
 					<ul className="flex gap-4">
-						<SocialLink href="#">
+						<SocialLinkBtn href="#">
 							<Image
 								src="/facebook.webp"
 								alt="facebook logo"
 								width={22}
 								height={22}
 							/>
-						</SocialLink>
-						<SocialLink href="#">
+						</SocialLinkBtn>
+						<SocialLinkBtn href="#">
 							<Image
 								src="/twitter.webp"
 								alt="twitter logo"
 								width={22}
 								height={22}
 							/>
-						</SocialLink>
-						<SocialLink href="#">
+						</SocialLinkBtn>
+						<SocialLinkBtn href="#">
 							<Image
 								src="/linkedin.webp"
 								alt="linkedin logo"
 								width={22}
 								height={22}
 							/>
-						</SocialLink>
+						</SocialLinkBtn>
 					</ul>
 				</ul>
 				<div className="w-2/3 space-y-3">

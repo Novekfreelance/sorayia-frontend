@@ -5,7 +5,7 @@ import Container from "./ui/Container";
 
 const HeroBanner = () => {
 	return (
-		<Container>
+		<Container className="mt-28">
 			<div className="flex items-center justify-center">
 				<div className="w-3/5">
 					<h1 className="text-5xl text-primary mb-20">

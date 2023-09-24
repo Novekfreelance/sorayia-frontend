@@ -10,7 +10,7 @@ const Links = [
 	},
 	{
 		text: "Use case",
-		href: "#use-case",
+		href: "/#use-case",
 	},
 	{
 		text: "Contact us",

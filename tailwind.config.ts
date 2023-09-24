@@ -55,8 +55,15 @@ module.exports = {
       "2xl": [
         "21px",
         {
-          lineHeight: "21px",
+          lineHeight: "25px",
           fontWeight: "500",
+        },
+      ],
+      "2xl-600": [
+        "21px",
+        {
+          lineHeight: "25px",
+          fontWeight: "600",
         },
       ],
       'xl-600': [
@@ -115,12 +122,21 @@ module.exports = {
           family: ['Montserrat', 'sans-serif'],
         },
       },
+      dropShadow: {
+        'xl': '0px 8px 24px rgba(18, 28, 53, 0.1)',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        white: {
+          DEFAULT: "hsl(var(--white))",
+        },
+        black: {
+          DEFAULT: "hsl(var(--black))",
+        },
         primary: {
           300: "hsl(var(--primary-200))",
           DEFAULT: "hsl(var(--primary))",
@@ -140,6 +156,7 @@ module.exports = {
         },
         gray: {
           200: "hsl(var(--gray-200))",
+          300: "hsl(var(--gray-300))",
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",
@@ -157,6 +174,7 @@ module.exports = {
       },
       boxShadow: {
         DEFAULT: 'rgba(0, 0, 0, 0.06) 0px 1px 5px',
+        100: 'rgba(0, 0, 0, 0.25) 0px 2px 7px',
       },
       borderColor: {
         DEFAULT: 'rgba(0, 0, 0, 0.1)',
