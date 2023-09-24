@@ -1,14 +1,15 @@
-"use client";
+"use client"
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Logo from "./ui/Logo";
 import { NavLinks, AuthLinks } from "@/components/Link";
-import { useState, useEffect } from "react";
 
 type Props = {
   className?: string;
 };
 
 let lastScrollTop = 0;
+
 
 const Navbar: React.FC<Props> = ({ className }) => {
   const [scrollingDown, setScrollingDown] = useState(false);
@@ -21,13 +22,13 @@ const Navbar: React.FC<Props> = ({ className }) => {
       } else {
         setScrollingDown(false);
       }
-      lastScrollTop = scrollTop; // Mettre à jour la position précédente
+      lastScrollTop = scrollTop;
     };
 
-    window.addEventListener("scroll", handleScroll); // Écouter l'événement de défilement lorsque le composant est monté
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll); // Nettoyer l'écouteur d'événements lorsque le composant est démonté
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
