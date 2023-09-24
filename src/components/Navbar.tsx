@@ -8,11 +8,10 @@ type Props = {
   className?: string;
 };
 
-let lastScrollTop = 0;
-
 
 const Navbar: React.FC<Props> = ({ className }) => {
   const [scrollingDown, setScrollingDown] = useState(false);
+  const [lastScrollTop, setLastScrollTop] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,15 +21,15 @@ const Navbar: React.FC<Props> = ({ className }) => {
       } else {
         setScrollingDown(false);
       }
-      lastScrollTop = scrollTop;
+      setLastScrollTop(scrollTop);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [lastScrollTop]);
 
   const navbarClasses = `${className} navbar fixed left-2/4 z-[99] -translate-x-2/4 top-0 bg-white w-11/12 my-7 mx-auto max-w-screen-xl flex items-center h-20 rounded border border-solid shadow border-shadowColor transition-transform ${
     scrollingDown ? "translate-y-[-110px] transition-transform" : ""
