@@ -1,4 +1,4 @@
-import Container from "@/components/ui/Container";
+import MaxWidthWrapper from "@/components/ui/MaxWidthWrapper";
 
 const PricingTable = () => {
   const pricingData = [
@@ -62,7 +62,7 @@ const PricingTable = () => {
 
   return (
     <section>
-      <Container>
+      <MaxWidthWrapper>
         <table className="border border-black border-collapse mx-auto max-w-[1035px]">
           <thead className="border">
             <tr>
@@ -91,7 +91,7 @@ const PricingTable = () => {
             ))}
           </tbody>
         </table>
-      </Container>
+      </MaxWidthWrapper>
     </section>
   );
 };

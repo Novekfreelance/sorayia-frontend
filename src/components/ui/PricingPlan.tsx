@@ -1,5 +1,5 @@
-import Container from "@/components/ui/Container";
-import { Button } from "@/components/ui/button";
+import MaxWidthWrapper from "@/components/ui/MaxWidthWrapper";
+import { Button } from "@/components/ui/Button";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -44,7 +44,7 @@ const PricingPlan = () => {
   ];
   return (
     <section className="relative z-[2] my-20">
-      <Container>
+      <MaxWidthWrapper>
         <div className=" mx-auto flex max-w-[1055px] gap-6">
           {PricingPlanData.map((card, index) => (
             <div
@@ -83,7 +83,7 @@ const PricingPlan = () => {
             </div>
           ))}
         </div>
-      </Container>
+      </MaxWidthWrapper>
       <Image
         className="absolute top-[-50%] right-0 -z-[1] pointer-events-none"
         src="/background-blue-3.webp"

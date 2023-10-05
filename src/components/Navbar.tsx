@@ -1,13 +1,13 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Logo from "./ui/Logo";
+import LogoSorayia from "./ui/Logo";
 import { NavLinks, AuthLinks } from "@/components/Link";
+import MaxWidthWrapper from "./ui/MaxWidthWrapper";
 
 type Props = {
   className?: string;
 };
-
 
 const Navbar: React.FC<Props> = ({ className }) => {
   const [scrollingDown, setScrollingDown] = useState(false);
@@ -24,10 +24,10 @@ const Navbar: React.FC<Props> = ({ className }) => {
       setLastScrollTop(scrollTop);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollTop]);
 
@@ -37,20 +37,15 @@ const Navbar: React.FC<Props> = ({ className }) => {
 
   return (
     <nav className={navbarClasses}>
-      <div className="w-full max-w-[1200px] mx-auto flex items-center justify-between pr-7 pl-6">
+      <MaxWidthWrapper className="flex items-center justify-between pr-7 pl-6">
         <Link href="/">
-          <Logo
-            imageSrc="/sorayia.webp"
-            alt="sorayia logo"
-            LogoWidth={181}
-            LogoHeight={49}
-          />
+          <LogoSorayia LogoWidth={181} LogoHeight={49} />
         </Link>
         <NavLinks />
         <ul className="flex items-center gap-4">
           <AuthLinks />
         </ul>
-      </div>
+      </MaxWidthWrapper>
     </nav>
   );
 };

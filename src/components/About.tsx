@@ -1,13 +1,13 @@
 import Image from "next/image";
 
 import AboutCard from "./ui/AboutCard";
-import Container from "./ui/Container";
+import MaxWidthWrapper from "./ui/MaxWidthWrapper";
 import SectionTitle from "./ui/SectionTitle";
 
 const About: React.FC = () => {
 	return (
 		<section className="relative my-20">
-			<Container>
+			<MaxWidthWrapper>
 				<SectionTitle>What is sorayia ?</SectionTitle>
 				<div className="relative grid grid-cols-3 h-[700px]">
 					<div>
@@ -52,7 +52,7 @@ const About: React.FC = () => {
 					<h3 className="absolute top-10 right-0 text-end text-3xl text-primary">Discover the Future of Customer Interaction<br />
 						with 3D Virtual Influencers!</h3>
 				</div>
-			</Container>
+			</MaxWidthWrapper>
 			<Image
 				className="absolute top-[-50%] left-0 pointer-events-none"
 				src="/background-blue-2.webp"

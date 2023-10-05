@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import SectionTitle from "./ui/SectionTitle";
-import ContactForm from './ui/ContactForm';
+import ContactForm from './ContactForm';
 
 type Props = {
 	backgroundImageSrc: string,

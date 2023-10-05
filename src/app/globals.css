@@ -7,10 +7,6 @@ html {
 	scroll-behavior: smooth;
 }
 
-/* .swiper-slide-shadow-left,
-.swiper-slide-shadow-right {
-  display: none;
-} */
 
 .swiper-slide {
   width: 450px;
@@ -49,6 +45,7 @@ html {
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
+    --gray-100: 0 0% 90%;
     --gray-200: 0 0% 80%;
     --gray-300: 0 0% 60%;
  

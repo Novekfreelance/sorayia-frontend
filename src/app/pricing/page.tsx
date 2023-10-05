@@ -1,12 +1,12 @@
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Header from "@/components/Header";
-import Image from "next/image";
-import PricingTable from "./components/PricingTable";
-import PricingPlan from "./components/PricingPlan";
-import Hero from "./components/Hero";
-import Cta from "./components/Cta";
+import PrincingHero from "@/components/ui/PricingHero";
+import PricingTable from "@/components/ui/PricingTable";
+import PricingPlan from "@/components/ui/PricingPlan";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import PricingCta from "@/components/ui/PricingCta";
 
 const Pricing = () => {
   return (
@@ -21,10 +21,10 @@ const Pricing = () => {
           height={761}
         />
       </Header>
-      <Hero />
+      <PrincingHero />
       <PricingTable />
       <PricingPlan />
-      <Cta />
+      <PricingCta/>
       <Contact
         backgroundImageSrc="/background-blue-2.webp"
         imageClassName="absolute bottom-[-60%] left-0 pointer-events-none"

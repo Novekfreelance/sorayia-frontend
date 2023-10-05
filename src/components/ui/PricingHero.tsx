@@ -1,8 +1,8 @@
-import Container from "@/components/ui/Container"
+import MaxWidthWrapper from "@/components/ui/MaxWidthWrapper"
 
-const Hero = () => {
+const PrincingHero = () => {
 	return (
-		<Container className="mt-32">
+		<MaxWidthWrapper className="mt-32">
 			<h1 className="text-4xl text-primary text-center mb-5">
           Unlock the Power of 3D virtual Influencers
         </h1>
@@ -10,8 +10,8 @@ const Hero = () => {
           We offer a range of packages tailored to your needs, providing you
           with a personalized experience with Sorayia
         </p>
-		</Container>
+		</MaxWidthWrapper>
 	)
 }
 
-export default Hero
+export default PrincingHero

@@ -1,14 +1,14 @@
-import Container from "@/components/ui/Container";
+import MaxWidthWrapper from "@/components/ui/MaxWidthWrapper";
 import FooterBottomSection from "@/components/ui/FooterBottomSection";
 import {SocialLinkBtn} from "@/components/ui/CustumsBtn";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function NotFound() {
   return (
     <main>
-      <Container className="relative">
+      <MaxWidthWrapper className="relative">
         <div className="mx-auto max-w-[610px] text-center h-full">
           <div>
             <span className="text-[300px] leading-[300px] text-black font-semibold">
@@ -64,7 +64,7 @@ export default function NotFound() {
           </ul>
           <FooterBottomSection className="max-w-[90%] mx-auto" />
         </div>
-      </Container>
+      </MaxWidthWrapper>
     </main>
   );
 }

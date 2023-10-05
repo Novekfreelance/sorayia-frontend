@@ -1,27 +1,32 @@
-import Image from 'next/image';
+import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface LogoProps {
-  imageSrc: string;
-  text?: string;
-  alt: string;
   LogoWidth: number;
   LogoHeight: number;
+  className?: string;
 }
 
-const Logo: React.FC<LogoProps> = ({ imageSrc, text, alt, LogoWidth, LogoHeight }) => {
+const LogoSorayia: React.FC<LogoProps> = ({
+  LogoWidth,
+  LogoHeight,
+  className,
+}) => {
   return (
-    <div className="logo">
-      {imageSrc ? (
-        <Image src={imageSrc}
-        alt= {alt}
+    <>
+      <Image
+        src="/sorayia.webp"
+        className={cn(className)}
+        style={{
+          width: "auto",
+          height: "auto",
+        }}
+        alt="logo sorayia"
         width={LogoWidth}
         height={LogoHeight}
-        className='max-w-[100%] h-auto'/>
-      ) : (
-        <span>{text}</span>
-      )}
-    </div>
+      />
+    </>
   );
 };
 
-export default Logo;
+export default LogoSorayia;

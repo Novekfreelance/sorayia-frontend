@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { Button } from "./ui/button";
+import { Button } from "./ui/Button";
 import Link from "next/link";
-import Container from "./ui/Container";
+import MaxWidthWrapper from "./ui/MaxWidthWrapper";
 
 const HeroBanner = () => {
 	return (
-		<Container className="mt-28">
+		<MaxWidthWrapper className="mt-28">
 			<div className="flex items-center justify-center">
 				<div className="w-3/5">
 					<h1 className="text-5xl text-primary mb-20">
@@ -28,7 +28,7 @@ const HeroBanner = () => {
 					/>
 				</div>
 			</div>
-		</Container>
+		</MaxWidthWrapper>
 	)
 }
 

@@ -1,5 +1,4 @@
 // import Container from './ui/Container'
-import { Star } from "lucide-react";
 import Carousel from "./ui/Carousel";
 import SectionTitle from "./ui/SectionTitle";
 import Image from "next/image";

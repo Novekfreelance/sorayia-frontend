@@ -1,11 +1,11 @@
-import Container from "@/components/ui/Container";
-import { Button } from "@/components/ui/button";
+import MaxWidthWrapper from "@/components/ui/MaxWidthWrapper";
+import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 
-const Cta = () => {
+const PricingCta = () => {
   return (
     <section className="my-20">
-      <Container className="space-y-5 text-center">
+      <MaxWidthWrapper className="space-y-5 text-center">
         <h2 className="text-center text-primary text-4xl">
           Discover the world of 3D virtual influencers with <br /> our free version
         </h2>
@@ -22,9 +22,9 @@ const Cta = () => {
         <h2 className="max-w-[311.67px] text-center text-xl mx-auto">
           No Credit Card required
         </h2>
-      </Container>
+      </MaxWidthWrapper>
     </section>
   );
 };
 
-export default Cta;
+export default PricingCta;

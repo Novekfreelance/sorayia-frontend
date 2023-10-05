@@ -45,6 +45,13 @@ module.exports = {
           fontWeight: "500",
         },
       ],
+      "4xl-700": [
+        "34px",
+        {
+          lineHeight: "41px",
+          fontWeight: "700",
+        },
+      ],
       "3xl": [
         "27px",
         {
@@ -57,6 +64,13 @@ module.exports = {
         {
           lineHeight: "25px",
           fontWeight: "500",
+        },
+      ],
+      "2xl-400": [
+        "21px",
+        {
+          lineHeight: "35px",
+          fontWeight: "400",
         },
       ],
       "2xl-600": [
@@ -125,6 +139,9 @@ module.exports = {
       dropShadow: {
         'xl': '0px 8px 24px rgba(18, 28, 53, 0.1)',
       },
+      height: {
+        "full-dvh": "100dvh"
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -155,6 +172,7 @@ module.exports = {
           foreground: "hsl(var(--muted-foreground))",
         },
         gray: {
+          100: "hsl(var(--gray-100))",
           200: "hsl(var(--gray-200))",
           300: "hsl(var(--gray-300))",
         },

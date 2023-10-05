@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FooterAuthLinks, LegalFooterLinks, NavFooterLinks } from "../Link";
 import {SocialLinkBtn} from "./CustumsBtn";
-import NewsLetterForm from "./NewsLetterForm";
+import NewsLetterForm from "../NewsLetterForm";
 
 const FooterLinksSection = () => {
 	return (

@@ -1,18 +1,16 @@
-import Image from "next/image";
-import Container from "./ui/Container";
+import MaxWidthWrapper from "./ui/MaxWidthWrapper";
 import FooterLinksSection from "./ui/FooterLinksSection";
 import FooterBottomSection from "./ui/FooterBottomSection";
-// import bgBlueImg from '@/assets/background-blue2.png';
 
 
 const Footer = () => {
 	return (
 		<section className="mt-20 border-t border-solid border-gray-200">
 			<footer className="pt-10">
-				<Container>
+				<MaxWidthWrapper>
 					<FooterLinksSection />
 					<FooterBottomSection />
-				</Container>
+				</MaxWidthWrapper>
 			</footer>
 		</section>
 	)
