@@ -1,7 +1,7 @@
 import { SocialLinkBtn } from "@/components/ui/CustumsBtn";
 import LogoSorayia from "@/components/ui/Logo";
 import SignUpForm from "@/components/SignUpForm";
-import { buttonVariants } from "@/components/ui/Button";
+import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 
 const SignUp = () => {

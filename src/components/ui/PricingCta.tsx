@@ -1,5 +1,5 @@
 import MaxWidthWrapper from "@/components/ui/MaxWidthWrapper";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const PricingCta = () => {

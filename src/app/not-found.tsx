@@ -1,7 +1,7 @@
 import MaxWidthWrapper from "@/components/ui/MaxWidthWrapper";
 import FooterBottomSection from "@/components/ui/FooterBottomSection";
 import {SocialLinkBtn} from "@/components/ui/CustumsBtn";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 

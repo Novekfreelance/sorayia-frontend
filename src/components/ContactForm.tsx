@@ -1,11 +1,11 @@
 "use client";
-import { Button } from "./ui/Button";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/Form";
-import { Input } from "./ui/Input";
+import { Button } from "./ui/button";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
+import { Input } from "./ui/input";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Textarea } from "./ui/Textarea";
+import { Textarea } from "./ui/textarea";
 
 const FormSchema = z.object({
   name: z.string().min(2, {
