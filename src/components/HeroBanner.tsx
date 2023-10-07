@@ -18,13 +18,17 @@ const HeroBanner = () => {
 					</Button>
 					<h2 className="max-w-[311.67px] text-center text-xl pt-5">No Credit Card required</h2>
 				</div>
-				<div className="w-2/5 flex justify-end">
+				<div className="w-2/5 flex justify-center">
 					<Image
 						className="pointer-events-none"
-						src='/Female_virtual_assistant.webp'
-						width={383}
-						height={527}
-						alt="Virtual Assistant"
+						src='/man-3D-1.webp'
+						alt=""
+						width={492}
+						height={657}
+						style={{
+							width: "auto",
+							height: "auto",
+						}}
 					/>
 				</div>
 			</div>

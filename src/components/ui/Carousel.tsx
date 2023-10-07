@@ -16,21 +16,21 @@ register();
 const UserTestimonialsData = [
   {
     name: "Pierre Martin",
-    profilPicture: "/user1.png",
+    profilPicture: "/user1.webp",
     job: "Managing Director of ABC Mode",
     testimonial:
       "Sorayia has transformed our marketing approach. Their 3D virtual influencers have created a unique experience for our customers, allowing us to better understand their needs and increase our impact on the market.",
   },
   {
     name: "Marie Dupont",
-    profilPicture: "/user2.png",
+    profilPicture: "/user2.webp",
     job: "Marketing Manager at XYZ Solutions",
     testimonial:
       "Thanks to Sorayia, our customer interactions have become more personalized and compelling. The 3D avatars have allowed us to improve our customer engagement and boost our sales significantly.",
   },
   {
     name: "FOYTH Gill",
-    profilPicture: "/user3.png",
+    profilPicture: "/user3.webp",
     job: "Marketing Manager at XYZ Solutions",
     testimonial:
       "Thanks to Sorayia, our customer interactions have become more personalized and compelling. our customer engagement and boost our sales significantly.",
@@ -92,7 +92,7 @@ const testimonialCards = UserTestimonialsData.map((User, index) => (
 
 const Carousel = () => {
   return (
-    <div className="relative w-[800px] h-full py-8 translate-y-[3%] -left-[35%] pl-[34px]">
+    <div className="relative w-[800px] h-full py-8 translate-y-[3%] -left-[35%] top-10 pl-[34px]">
       <Swiper
         effect={"coverflow"}
         grabCursor={true}

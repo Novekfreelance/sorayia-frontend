@@ -1,5 +1,4 @@
 "use client";
-import useAuthStore from "@/app/store/AuthStore";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -60,18 +59,14 @@ export const NavFooterLinks = () => {
 };
 
 export const AuthLinks = () => {
-  const { toggleForm } = useAuthStore();
-
   const Authlinks = [
     {
       text: "login",
       href: "/sign-in",
-      formType: "login",
     },
     {
       text: "join free",
       href: "/sign-up",
-      formType: "register",
     },
   ];
 
@@ -82,7 +77,6 @@ export const AuthLinks = () => {
           <Link
             href={AuthLink.href}
             className={`text-xl ${index === 1 ? "text-primary" : ""}`}
-            onClick={toggleForm}
           >
             {AuthLink.text}
           </Link>

@@ -9,9 +9,9 @@ const Testimonials = () => {
       <section className="relative z-[2] my-20">
         <SectionTitle>Testimonials</SectionTitle>
         <div className="w-full flex overflow-hidden">
-          <div className="min-h-[500px] bg-gray-200 w-3/5 rounded-r border shadow border-solid border-shadowColor relative z-[2]">
-            <div className="flex justify-between flex-col align-middle pl-20 pr-36 pt-24 pb-9 h-full relative z-[4]">
-              <div className="flex flex-col gap-7">
+          <div className="min-h-[600px] bg-gray-200 w-3/5 rounded-r border shadow border-solid border-shadowColor relative z-[2]">
+            <div className="flex justify-between flex-col items-center pl-20 pr-36 pt-24 pb-20 h-full relative z-[4]">
+              <div className="flex flex-col gap-7 translate-y-24">
                 <h3 className="text-4xl text-primary">
                   Our Customers Love Sorayia!
                 </h3>
@@ -20,7 +20,7 @@ const Testimonials = () => {
                 </h4>
                 <p className="text-xl-400">
                   Discover enthusiastic feedback from our satisfied customers.
-                  With Sorayia, they have transformed their customer
+                  With Sorayia, they have transformed their customer <br />
                   relationships and reached new levels of engagement.
                 </p>
               </div>
@@ -98,6 +98,13 @@ const Testimonials = () => {
           <div className="relative w-2/5 z-[2] h-full">
             <Carousel />
           </div>
+          <Image
+            className="absolute z-1 right-12 top-[54px] -translate-y-7"
+            src="/man-3D-4.webp"
+            alt=""
+            width={395}
+            height={652}
+          />
         </div>
         <Image
           className="absolute top-[-50%] left-0 z-[1] pointer-events-none"

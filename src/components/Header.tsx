@@ -6,7 +6,7 @@ type Props = {
 };
 
 const Header = ({ className, children }: Props) => {
-  return <header className={`w-full ${className}`}>{children}</header>;
+  return <header className={`w-full h-dvh ${className}`}>{children}</header>;
 };
 
 export default Header;

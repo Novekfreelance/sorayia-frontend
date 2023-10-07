@@ -29,7 +29,7 @@ const FeaturesCard = () => {
           <h4 className="text-2xl text-primary text-center mb-3 min-h-[42px] flex items-center justify-center">
             {Feature.title}
           </h4>
-          <div className="rounded border shadow border-solid border-shadowColor p-8 flex-grow min-h-[216px]">
+          <div className="rounded border shadow border-solid border-shadowColor p-8 flex-grow min-h-[216px] bg-white relative z-[2]">
             <p className="text-center text-xl-400">{Feature.description}</p>
           </div>
         </div>

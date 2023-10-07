@@ -18,8 +18,12 @@ export default function Home() {
           className="absolute -top-[50%] right-0 pointer-events-none z-[100]"
           src="/background-blue-3.webp"
           alt=""
-          width={358}
-          height={508}
+          width={411}
+          height={761}
+          style={{
+            width: "auto",
+            height: "auto",
+          }}
         />
       </Header>
       <About />

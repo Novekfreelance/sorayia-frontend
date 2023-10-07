@@ -6,13 +6,14 @@ import SectionTitle from "./ui/SectionTitle";
 
 const About: React.FC = () => {
 	return (
-		<section className="relative my-20">
+		<section className="relative mt-20 mb-48">
 			<MaxWidthWrapper>
 				<SectionTitle>What is sorayia ?</SectionTitle>
 				<div className="relative grid grid-cols-3 h-[700px]">
 					<div>
 						<AboutCard
 							title="Our Story"
+							className="z-[4]"
 							imageSrc="/Quill_Pen.webp"
 							altText="Quill Pen icon"
 							imgWidth={60}
@@ -23,9 +24,17 @@ const About: React.FC = () => {
 							descriptionAlignement="text-start"
 						/>
 					</div>
+					<Image
+            className="absolute z-[5] top-[39.2%] left-[34%] -translate-x-2/4 -translate-y-2/4"
+            src="/femal-3D-2.webp"
+            alt=""
+            width={188}
+            height={479}
+          />
 					<div className="flex items-center">
 						<AboutCard
 							title="Our Mission"
+							className="z-[7] translate-y-[15%]"
 							imageSrc="/Launch.webp"
 							altText="Launch icon"
 							imgWidth={60}
@@ -36,9 +45,17 @@ const About: React.FC = () => {
 							descriptionAlignement="text-center"
 						/>
 					</div>
+					<Image
+            className="absolute z-[6] top-[67%] right-[16%] -translate-x-2/4 -translate-y-2/4"
+            src="/femal-3D-1.webp"
+            alt=""
+            width={216}
+            height={516}
+          />
 					<div className="flex items-end">
 						<AboutCard
 							title="Why Sorayia ?"
+							className="z-[5] translate-y-[32%]"
 							imageSrc="/Select.webp"
 							altText="Select icon"
 							imgWidth={60}
