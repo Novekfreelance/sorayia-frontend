@@ -10,6 +10,7 @@ import "swiper/css/navigation";
 
 import { EffectCoverflow, Navigation } from "swiper/modules";
 import Image from "next/image";
+import { DoubbleQuoteIcon } from "../icons/SvgIcons";
 
 register();
 
@@ -58,20 +59,11 @@ const UserTestimonialsData = [
   },
 ];
 
-
 const testimonialCards = UserTestimonialsData.map((User, index) => (
   <SwiperSlide key={index}>
     <div className="flex flex-col justify-evenly gap-9 p-5 bg-gray-300 w-[400px] h-[400px] rounded shadow-100 border-shadowColor">
       <div className="text-left">
-        <svg
-          width={35}
-          height={35}
-          fill="#ffffff"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M16.32 17.28a1.2 1.2 0 0 0 1.2-1.2v-2.93a1.2 1.2 0 0 0-1.2-1.2h-1.666c0-.421.025-.843.075-1.265.074-.446.199-.843.372-1.19.174-.348.397-.62.67-.82.273-.223.62-.335 1.042-.335V6.48c-.695 0-1.302.15-1.824.447a3.987 3.987 0 0 0-1.302 1.19 5.912 5.912 0 0 0-.744 1.75 9.256 9.256 0 0 0-.223 2.083v4.13a1.2 1.2 0 0 0 1.2 1.2h2.4Zm-7.2 0a1.2 1.2 0 0 0 1.2-1.2v-2.93a1.2 1.2 0 0 0-1.2-1.2H7.454c0-.421.025-.843.075-1.265.074-.446.199-.843.372-1.19.174-.348.397-.62.67-.82.273-.223.62-.335 1.042-.335V6.48c-.695 0-1.302.15-1.824.447a3.986 3.986 0 0 0-1.302 1.19 5.912 5.912 0 0 0-.744 1.75 9.254 9.254 0 0 0-.223 2.083v4.13a1.2 1.2 0 0 0 1.2 1.2h2.4Z" />
-        </svg>
+        <DoubbleQuoteIcon width={35} height={35} fill="#ffffff" />
       </div>
       <div>
         <p className="text-center text-2xl text-white">{`"${User.testimonial}"`}</p>
@@ -88,7 +80,6 @@ const testimonialCards = UserTestimonialsData.map((User, index) => (
     </div>
   </SwiperSlide>
 ));
-
 
 const Carousel = () => {
   return (
@@ -118,7 +109,6 @@ const Carousel = () => {
         modules={[EffectCoverflow, Navigation]}
         className="relative py-6 min-h-[450px]"
       >
-
         {testimonialCards}
 
         <div className="slider-controler relative -bottom-6">

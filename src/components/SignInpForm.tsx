@@ -6,6 +6,10 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import { EmailIcon, LockIcon } from "./icons/SvgIcons";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
 
 const FormSchema = z.object({
   email: z
@@ -16,20 +20,46 @@ const FormSchema = z.object({
     .email({
       message: "Invalid email",
     }),
-  password: z.string().min(2, {
-    message: "#",
-  }),
+  password: z
+    .string()
+    .min(1, {
+      message: "Password is required",
+    })
+    .min(8, {
+      message: "Password must have than 8 characters",
+    }),
 });
-
-const onSubmit = () => {
-  console.log("Form submit good");
-};
 
 //Sign Up form
 const SignInForm = () => {
+  const router = useRouter();
+  const { toast } = useToast();
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
   });
+
+  const onSubmit = async (values: z.infer<typeof FormSchema>) => {
+    const signInData = await signIn("credentials", {
+      emmail: values.email,
+      password: values.password,
+      redirect: false,
+    });
+    if (signInData?.error) {
+      toast({
+        title: "Error",
+        variant: "destructive",
+        description: "Oops! Something when wrong!",
+      });
+    } else {
+      router.refresh();
+      router.push("/dashboard");
+    }
+  };
 
   return (
     <Form {...form}>
@@ -43,15 +73,7 @@ const SignInForm = () => {
                 <FormControl>
                   <div className="relative">
                     <span className="absolute top-2/4 -translate-y-2/4 translate-x-2/4">
-                      <svg
-                        width={30}
-                        height={30}
-                        fill="#999999"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.7-8 5.334L4 8.7V6.297l8 5.333 8-5.333V8.7Z" />
-                      </svg>
+                      <EmailIcon width={30} height={30} fill="#999999" />
                     </span>
                     <Input
                       className="bg-gray-100 rounded py-7 pl-14"
@@ -72,15 +94,7 @@ const SignInForm = () => {
                 <FormControl>
                   <div className="relative">
                     <span className="absolute top-2/4 -translate-y-2/4 translate-x-2/4">
-                      <svg
-                        width={30}
-                        height={30}
-                        fill="#999999"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M20 12c0-1.103-.897-2-2-2h-1V7c0-2.757-2.243-5-5-5S7 4.243 7 7v3H6c-1.103 0-2 .897-2 2v8c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-8ZM9 7c0-1.654 1.346-3 3-3s3 1.346 3 3v3H9V7Z" />
-                      </svg>
+                      <LockIcon width={30} height={30} fill="#999999" />
                     </span>
                     <Input
                       className="bg-gray-100 rounded py-7 pl-14"

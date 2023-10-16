@@ -9,8 +9,12 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Sorayia",
-  description: "Sorayia",
+  title: {
+    default: "Sorayia",
+    template: "%s | Sorayia",
+  },
+  description:
+    "Elevate your brand with Sorayia's virtual influencers. Create 3D avatars with voice recognition and NLP. Engage clients uniquely and boost product promotions.",
 };
 
 export default function RootLayout({

@@ -7,6 +7,13 @@ import PricingPlan from "@/components/ui/PricingPlan";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import PricingCta from "@/components/ui/PricingCta";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Pricing",
+  description:
+    "Explore our flexible pricing plans designed to meet your needs. Choose from three tiers of monthly plans. Enjoy competitive rates with exceptional features. Compare our plans now and find the one that suits you best.",
+};
 
 const Pricing = () => {
   return (
@@ -24,7 +31,7 @@ const Pricing = () => {
       <PrincingHero />
       <PricingTable />
       <PricingPlan />
-      <PricingCta/>
+      <PricingCta />
       <Contact
         backgroundImageSrc="/background-blue-2.webp"
         imageClassName="absolute bottom-[-60%] left-0 pointer-events-none"
