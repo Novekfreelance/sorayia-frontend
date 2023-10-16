@@ -7,9 +7,6 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const FormSchema = z.object({
-  name: z.string().min(2, {
-    message: "Username must be at least 2 characters",
-  }),
   email: z
     .string()
     .min(1, {
@@ -25,12 +22,6 @@ const onSubmit = () => {
 };
 
 const NewsLetterForm = () => {
-  const FormSchema = z.object({
-    email: z.string().email({
-      message: "Invalid email",
-    }),
-  });
-
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
@@ -66,4 +57,4 @@ const NewsLetterForm = () => {
   );
 };
 
-export default NewsLetterForm
+export default NewsLetterForm;
