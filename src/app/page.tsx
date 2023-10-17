@@ -10,7 +10,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main>
+    <div>
       <Header>
         <Navbar />
         <HeroBanner />
@@ -36,6 +36,6 @@ export default function Home() {
         imageHeight={761}
       />
       <Footer />
-    </main>
+    </div>
   );
 }

@@ -1,4 +1,5 @@
 "use client";
+import { Toaster } from "@/components/ui/toaster";
 import { Montserrat } from "next/font/google";
 import { ReactNode, FC } from "react";
 
@@ -15,7 +16,10 @@ type AuthLayoutProps = {
 const AuthLayout: FC<AuthLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
-      <body className={montserrat.className}>{children}</body>
+      <body className={montserrat.className}>
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 };

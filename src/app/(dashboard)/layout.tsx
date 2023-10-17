@@ -1,5 +1,4 @@
 "use client";
-import { Toaster } from "@/components/ui/toaster";
 import { Montserrat } from "next/font/google";
 import { ReactNode, FC } from "react";
 
@@ -17,7 +16,6 @@ const DashboardLayout: FC<DashboardLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
       <body className={montserrat.className}>{children}</body>
-      <Toaster />
     </html>
   );
 };
