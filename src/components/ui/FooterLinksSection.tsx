@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { FooterAuthLinks, LegalFooterLinks, NavFooterLinks } from "../Link";
-import { SocialLinkBtn } from "./CustumsBtn";
 import NewsLetterForm from "../NewsLetterForm";
 import { FacebookIcon, LinkedinIcon, TwitterIcon } from "../icons/SvgIcons";
 
@@ -26,15 +25,21 @@ const FooterLinksSection = () => {
           </li>
           <li className="text-xl-500 text-primary">Social Media</li>
           <ul className="flex gap-4">
-            <SocialLinkBtn href="#">
-              <FacebookIcon width={22} height={22} fill="#ffffff" />
-            </SocialLinkBtn>
-            <SocialLinkBtn href="#">
-              <TwitterIcon width={22} height={22} fill="#ffffff" />
-            </SocialLinkBtn>
-            <SocialLinkBtn href="#">
-              <LinkedinIcon width={22} height={22} fill="#ffffff" />
-            </SocialLinkBtn>
+            <li>
+              <a href="#">
+                <FacebookIcon width={22} height={22} fill="#ffffff" />
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <TwitterIcon width={22} height={22} fill="#ffffff" />
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <LinkedinIcon width={22} height={22} fill="#ffffff" />
+              </a>
+            </li>
           </ul>
         </ul>
         <div className="w-2/3 space-y-3">
