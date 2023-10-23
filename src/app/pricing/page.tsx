@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const Pricing = () => {
   return (
-    <div>
+    <main>
       <Header className="relative">
         <Navbar className="z-[2] bg-white" />
         <Image
@@ -39,7 +39,7 @@ const Pricing = () => {
         imageHeight={761}
       />
       <Footer />
-    </div>
+    </main>
   );
 };
 

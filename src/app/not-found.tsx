@@ -1,9 +1,8 @@
 import MaxWidthWrapper from "@/components/ui/MaxWidthWrapper";
 import FooterBottomSection from "@/components/ui/FooterBottomSection";
-import {SocialLinkBtn} from "@/components/ui/CustumsBtn";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import Link from "next/link";
+import { FacebookIcon, LinkedinIcon, TwitterIcon } from "@/components/icons/SvgIcons";
 
 export default function NotFound() {
   return (
@@ -37,30 +36,15 @@ export default function NotFound() {
         </div>
         <div className="fixed bottom-0 -left-2/4 translate-x-2/4 w-full">
           <ul className="flex gap-4 justify-center">
-            <SocialLinkBtn href="#">
-              <Image
-                src="/facebook.webp"
-                alt="facebook logo"
-                width={22}
-                height={22}
-              />
-            </SocialLinkBtn>
-            <SocialLinkBtn href="#">
-              <Image
-                src="/twitter.webp"
-                alt="twitter logo"
-                width={22}
-                height={22}
-              />
-            </SocialLinkBtn>
-            <SocialLinkBtn href="#">
-              <Image
-                src="/linkedin.webp"
-                alt="linkedin logo"
-                width={22}
-                height={22}
-              />
-            </SocialLinkBtn>
+            <li className="rounded-[50%] w-10 h-10 bg-primary flex items-center justify-center">
+              <Link href="#"><FacebookIcon width={22} height={22} fill="#ffffff" /></Link>
+            </li>
+            <li className="rounded-[50%] w-10 h-10 bg-primary flex items-center justify-center">
+              <Link href="#"><TwitterIcon width={22} height={22} fill="#ffffff" /></Link>
+            </li>
+            <li className="rounded-[50%] w-10 h-10 bg-primary flex items-center justify-center">
+              <Link href="#"><LinkedinIcon width={22} height={22} fill="#ffffff" /></Link>
+            </li>
           </ul>
           <FooterBottomSection className="max-w-[90%] mx-auto" />
         </div>

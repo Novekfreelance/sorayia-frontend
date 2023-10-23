@@ -13,7 +13,6 @@ const LogoSorayia: React.FC<LogoProps> = ({
   className,
 }) => {
   return (
-    <>
       <Image
         src="/sorayia.webp"
         className={cn(className)}
@@ -25,7 +24,6 @@ const LogoSorayia: React.FC<LogoProps> = ({
         width={LogoWidth}
         height={LogoHeight}
       />
-    </>
   );
 };
 

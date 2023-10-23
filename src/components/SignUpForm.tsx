@@ -7,6 +7,8 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EmailIcon, LockIcon, UserIcon } from "./icons/SvgIcons";
 import { useRouter } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
+
 
 const FormSchema = z.object({
   username: z.string().min(2, {
@@ -29,10 +31,11 @@ const FormSchema = z.object({
       message: "Password must have than 8 characters",
     }),
 });
-
+ 
 //Sign Up form
 const SignUpForm = () => {
   const router = useRouter();
+  const { toast } = useToast();
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -59,6 +62,11 @@ const SignUpForm = () => {
     if (response.ok) {
       router.push("/sign-in");
     } else {
+      toast({
+        title: "Error",
+        variant: "destructive",
+        description: "Oops! Something when wrong!",
+      });
       console.error("Registration failed");
     }
   };
