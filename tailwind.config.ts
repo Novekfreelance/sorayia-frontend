@@ -59,6 +59,13 @@ module.exports = {
           fontWeight: "500",
         },
       ],
+      "3xl-600": [
+        "27px",
+        {
+          lineHeight: "33px",
+          fontWeight: "600",
+        },
+      ],
       "2xl": [
         "21px",
         {
@@ -71,6 +78,13 @@ module.exports = {
         {
           lineHeight: "35px",
           fontWeight: "400",
+        },
+      ],
+      "2xl-500": [
+        "22px",
+        {
+          lineHeight: "26px",
+          fontWeight: "500",
         },
       ],
       "2xl-600": [
@@ -137,10 +151,11 @@ module.exports = {
         },
       },
       dropShadow: {
-        'xl': '0px 8px 24px rgba(18, 28, 53, 0.1)',
+        xl: '0px 8px 24px rgba(18, 28, 53, 0.1)',
       },
       height: {
-        "full-dvh": "100dvh"
+        "full-dvh": "100dvh",
+        inherit: "inherit",
       },
       colors: {
         border: "hsl(var(--border))",
@@ -172,9 +187,11 @@ module.exports = {
           foreground: "hsl(var(--muted-foreground))",
         },
         gray: {
+          50: "hsl(var(--gray-50))",
           100: "hsl(var(--gray-100))",
           200: "hsl(var(--gray-200))",
           300: "hsl(var(--gray-300))",
+          600: "hsl(var(--gray-600))",
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",

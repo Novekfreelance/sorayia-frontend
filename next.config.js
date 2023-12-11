@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	experimental: {
+  experimental: {
     appDir: true,
   },
   compiler: {
     styledComponents: true,
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

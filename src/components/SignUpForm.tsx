@@ -6,9 +6,10 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EmailIcon, LockIcon, UserIcon } from "./icons/SvgIcons";
-import { useRouter } from "next/navigation";
-import { useToast } from "@/components/ui/use-toast";
-
+// import { useRouter } from "next/navigation";
+// import { useToast } from "@/components/ui/use-toast";
+// import { createUserWithEmailAndPassword } from "firebase/auth";
+// import { auth } from "@/app/firebase";
 
 const FormSchema = z.object({
   username: z.string().min(2, {
@@ -31,11 +32,11 @@ const FormSchema = z.object({
       message: "Password must have than 8 characters",
     }),
 });
- 
+
 //Sign Up form
 const SignUpForm = () => {
-  const router = useRouter();
-  const { toast } = useToast();
+  // const router = useRouter();
+  // const { toast } = useToast();
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -46,33 +47,21 @@ const SignUpForm = () => {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof FormSchema>) => {
-    const response = await fetch("/api/user", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: values.username,
-        email: values.email,
-        password: values.password,
-      }),
-    });
-
-    if (response.ok) {
-      router.push("/sign-in");
-    } else {
-      toast({
-        title: "Error",
-        variant: "destructive",
-        description: "Oops! Something when wrong!",
-      });
-      console.error("Registration failed");
-    }
-  };
+  // const onSubmit = (values: z.infer<typeof FormSchema>) => {
+  //   createUserWithEmailAndPassword(auth, values.email, values.password);
+  //   if (auth.currentUser) {
+  //     router.push("/sign-in");
+  //   } else {
+  //     toast({
+  //       title: "Error",
+  //       variant: "destructive",
+  //       description: "Oops! Registration failed!",
+  //     });
+  //   }
+  // };
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form>
         <div className="space-y-3">
           <FormField
             control={form.control}

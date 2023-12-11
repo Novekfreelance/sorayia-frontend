@@ -38,21 +38,21 @@ const UserTestimonialsData = [
   },
   {
     name: "Pierre Martin",
-    profilPicture: "/user1.png",
+    profilPicture: "/user1.webp",
     job: "Managing Director of ABC Mode",
     testimonial:
       "Sorayia has transformed our marketing approach. Their 3D virtual influencers have created a unique experience for our customers, allowing us to better understand their needs and increase our impact on the market.",
   },
   {
     name: "Marie Dupont",
-    profilPicture: "/user2.png",
+    profilPicture: "/user2.webp",
     job: "Marketing Manager at XYZ Solutions",
     testimonial:
       "Thanks to Sorayia, our customer interactions have become more personalized and compelling. The 3D avatars have allowed us to improve our customer engagement and boost our sales significantly.",
   },
   {
     name: "FOYTH Gill",
-    profilPicture: "/user3.png",
+    profilPicture: "/user3.webp",
     job: "Marketing Manager at XYZ Solutions",
     testimonial:
       "Thanks to Sorayia, our customer interactions have become more personalized and compelling. our customer engagement and boost our sales significantly.",

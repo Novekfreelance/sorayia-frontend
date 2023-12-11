@@ -2,7 +2,7 @@ import LogoSorayia from "@/components/ui/Logo";
 import SignInForm from "@/components/SignInpForm";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
-import GoogleSignInButton from "@/components/ui/GoogleSignInButton";
+// import GoogleSignInButton from "@/components/ui/GoogleSignInButton";
 import { GoogleIcon } from "@/components/icons/SvgIcons";
 
 const SignIn = () => {
@@ -23,9 +23,9 @@ const SignIn = () => {
                 </h1>
                 <ul className="flex gap-4 justify-center">
                   <li>
-                    <GoogleSignInButton>
+                    {/* <GoogleSignInButton> */}
                       <GoogleIcon width={27} height={27} fill="#222222" />
-                    </GoogleSignInButton>
+                    {/* </GoogleSignInButton> */}
                   </li>
                 </ul>
                 <span className="text-xl-500 text-black text-center block">

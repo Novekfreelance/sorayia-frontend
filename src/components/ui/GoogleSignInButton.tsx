@@ -12,7 +12,7 @@ const GoogleSignInButton: FC<GoogleSignInButtonProps> = ({
   className,
 }) => {
   const loginWithGoogle = () => {
-    signIn("google", { callbackUrl: "http://localhost:3000/dashboard" });
+    signIn("google", { callbackUrl: "http://localhost:3000/dashboard/chat" });
   };
   return (
     <span

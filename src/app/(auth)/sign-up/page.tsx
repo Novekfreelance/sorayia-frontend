@@ -37,9 +37,9 @@ const SignUp = () => {
                 </h1>
                 <ul className="flex gap-4 justify-center">
                 <li className="list-none">
-                  {/* <GoogleSignInButton>
+                  {/* <GoogleSignInButton> */}
                     <GoogleIcon width={27} height={27} fill="#222222"/>
-                  </GoogleSignInButton> */}
+                  {/* </GoogleSignInButton> */}
                   </li>
                 </ul>
                 <span className="text-xl-500 text-black text-center block">

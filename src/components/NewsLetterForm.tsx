@@ -40,7 +40,7 @@ const NewsLetterForm = () => {
               <FormControl>
                 <Input
                   className="min-w-[300px] border border-solid border-primary"
-                  type="text"
+                  type="email"
                   placeholder="Email adress"
                   {...field}
                 />

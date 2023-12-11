@@ -7,33 +7,9 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { EmailIcon, LockIcon } from "./icons/SvgIcons";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useToast } from "@/components/ui/use-toast";
+import {FormSchema} from "@/constants/SignInFormSchemaConstant";
 
-const FormSchema = z.object({
-  email: z
-    .string()
-    .min(1, {
-      message: "Email is required",
-    })
-    .email({
-      message: "Invalid email",
-    }),
-  password: z
-    .string()
-    .min(1, {
-      message: "Password is required",
-    })
-    .min(8, {
-      message: "Password must have than 8 characters",
-    }),
-});
-
-//Sign Up form
 const SignInForm = () => {
-  const router = useRouter();
-  const { toast } = useToast();
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -43,27 +19,9 @@ const SignInForm = () => {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof FormSchema>) => {
-    const signInData = await signIn("credentials", {
-      mail: values.email,
-      password: values.password,
-      redirect: false,
-    });
-    if (signInData?.error) {
-      toast({
-        title: "Error",
-        variant: "destructive",
-        description: "Oops! Something when wrong!",
-      });
-    } else {
-      router.refresh();
-      router.push("/dashboard");
-    }
-  };
-
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form >
         <div className="space-y-3">
           <FormField
             control={form.control}
