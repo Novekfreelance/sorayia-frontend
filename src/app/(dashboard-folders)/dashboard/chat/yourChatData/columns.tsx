@@ -1,13 +1,10 @@
 "use client";
 
 import OpenYourConversationBtn from "@/components/dashboard/chatPage/OpenYourConversationBtn";
-import { DeleteIcon, PencilIcon } from "@/components/icons/SvgIcons";
+import { ChatBullIcon, DeleteIcon, PencilIcon } from "@/components/icons/SvgIcons";
 import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
-import { useRouter } from "next/navigation";
 
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
 export type ConversationData = {
   id: string;
   ConversationName: string;
@@ -17,6 +14,17 @@ export const columns: ColumnDef<ConversationData>[] = [
   {
     accessorKey: "ConversationName",
     header: "Title",
+    cell: ({row}) => {
+      const conversationData= row.original;
+      return (
+        <div className="flex items-center justify-center gap-5">
+          <ChatBullIcon fill="#1D3E80" height={23} width={23} />
+          <h3 className="text-xl-500 text-primary">
+            {conversationData.ConversationName}
+          </h3>
+        </div>
+      )
+    }
   },
   {
     id: "operations",
@@ -29,8 +37,6 @@ export const columns: ColumnDef<ConversationData>[] = [
           <Button
             className="py-2 px-4 bg-transparent border-none hover:bg-accent"
             onClick={() => {
-              // Handle opening the conversation in another page
-              // You can use React Router or useNavigate here
               console.log(`Opening conversation: ${conversationData.id}`);
             }}
           >
