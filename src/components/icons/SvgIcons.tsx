@@ -114,6 +114,13 @@ export const LockIcon: FC<IconProps> = ({ width, height, fill }) => {
     </svg>
   );
 };
+export const ChatBullIcon: FC<IconProps> = ({ width, height, fill }) => {
+  return (
+    <svg width={width} height={height} fill={fill} viewBox="0 0 24 24">
+      <path d="M12 19.6c5.302 0 9.6-3.76 9.6-8.4 0-4.638-4.298-8.4-9.6-8.4-5.301 0-9.6 3.762-9.6 8.4 0 2.113.892 4.045 2.364 5.52-.116 1.22-.5 2.557-.925 3.56-.095.223.089.473.328.434 2.707-.444 4.316-1.125 5.016-1.48a10.89 10.89 0 0 0 2.817.367Z" />
+    </svg>
+  );
+};
 export const ChatIcon: FC<IconProps> = ({ width, height, fill }) => {
   return (
     <svg
