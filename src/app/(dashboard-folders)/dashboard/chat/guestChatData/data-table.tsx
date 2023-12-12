@@ -51,7 +51,10 @@ export function DataTable<TData, TValue>({
                 <TableRow key={headerGroup.id} className="hover:bg-inherit p-2">
                   {headerGroup.headers.map((header) => {
                     return (
-                      <TableHead key={header.id}>
+                      <TableHead 
+                      key={header.id}
+                      className="text-center"
+                      >
                         {header.isPlaceholder
                           ? null
                           : flexRender(
@@ -72,7 +75,7 @@ export function DataTable<TData, TValue>({
                   className="hover:bg-inherit"
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="py-3 px-4">
+                    <TableCell key={cell.id} className="py-3 px-4 text-center">
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
