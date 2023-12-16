@@ -6,10 +6,9 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EmailIcon, LockIcon, UserIcon } from "./icons/SvgIcons";
-// import { useRouter } from "next/navigation";
-// import { useToast } from "@/components/ui/use-toast";
-// import { createUserWithEmailAndPassword } from "firebase/auth";
-// import { auth } from "@/app/firebase";
+import { useRouter } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
+// import ky from "ky";
 
 const FormSchema = z.object({
   username: z.string().min(2, {
@@ -47,21 +46,26 @@ const SignUpForm = () => {
     },
   });
 
-  // const onSubmit = (values: z.infer<typeof FormSchema>) => {
-  //   createUserWithEmailAndPassword(auth, values.email, values.password);
-  //   if (auth.currentUser) {
-  //     router.push("/sign-in");
-  //   } else {
-  //     toast({
-  //       title: "Error",
-  //       variant: "destructive",
-  //       description: "Oops! Registration failed!",
-  //     });
-  //   }
-  // };
+  const onSubmit = async (values: z.infer<typeof FormSchema>) => {
+    // const url = "/api/register";
+    // const body = JSON.stringify(values);
+    // try {
+    //   const response = await ky.post(url, { json: body });
+    //   if (response.status === 201) {
+    //     toast({ description: "Account created", variant: "success" });
+    //     router.push("/sign-in");
+    //     router.refresh();
+    //   } else {
+    //     toast({ description: "Something went wrong", variant: "destructive" });
+    //   }
+    // } catch (error) {
+    //   toast({ description: "Something went wrong", variant: "destructive" });
+    // }
+  };
+
   return (
     <Form {...form}>
-      <form>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="space-y-3">
           <FormField
             control={form.control}

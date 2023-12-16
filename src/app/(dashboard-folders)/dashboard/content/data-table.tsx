@@ -22,7 +22,7 @@ interface DataTableProps<TData, TValue> {
   data: TData[];
 }
 
-export function DataTable<TData, TValue>({
+export function ContentDataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
@@ -51,7 +51,7 @@ export function DataTable<TData, TValue>({
                 <TableRow key={headerGroup.id} className="hover:bg-inherit p-2 border-x-0 border-t-0">
                   {headerGroup.headers.map((header) => {
                     return (
-                      <TableHead 
+                      <TableHead
                       key={header.id}
                       className="text-center"
                       >
@@ -87,9 +87,9 @@ export function DataTable<TData, TValue>({
             </TableBody>
           </Table>
         ) : (
-          <div className="h-full min-h-[444px] flex items-center justify-center">
+          <div className="h-full min-h-[436px] flex items-center justify-center">
             <h2 className="text-3xl text-primary">
-              There are no guest conversation.
+							You have no content, lets create one !
             </h2>
           </div>
         )}

@@ -5,7 +5,7 @@ import BotsData from "./BotsData";
 
 const Bot = () => {
   return (
-    <div className="w-full h-full px-8 pb-8 pt-10 overflow-y-scroll">
+    <div className="w-full h-full p-8">
       <div className="flex justify-between items-center">
         <h1 className="text-3xl-600 text-black">Bots</h1>
         <div className="relative">
@@ -27,7 +27,7 @@ const Bot = () => {
         <AddNewBotBtn />
       </div>
       <div className="w-full pt-6">
-        <div className="shadow border-shadowColor bg-white">
+        <div className="rounded border border-solid shadow border-shadowColor bg-white overflow-hidden">
           <BotsData />
         </div>
       </div>

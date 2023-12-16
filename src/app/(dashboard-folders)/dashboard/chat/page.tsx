@@ -9,7 +9,7 @@ import AddNewYourConversationBtn from "@/components/dashboard/AddNewYourConversa
 
 const Chat = () => {
   return (
-    <div className="w-full h-full px-8 pb-8 pt-10 overflow-y-scroll">
+    <div className="w-full h-full p-8">
       <div className="flex justify-between items-center">
         <h1 className="text-3xl-600 text-black">Conversations</h1>
         <div className="relative">
@@ -32,7 +32,7 @@ const Chat = () => {
         className="w-full h-[90%] flex flex-col"
       >
         <div className="w-full flex justify-between items-center mt-4">
-          <TabsList className="w-52 space-x-5 bg-white shadow border border-solid border-shadowColor">
+          <TabsList className="w-52 space-x-5 bg-white rounded border border-solid shadow border-shadowColor">
             <TabsTrigger
               className="data-[state=active]:bg-transparent"
               value="Yours-Conversation"
@@ -50,13 +50,13 @@ const Chat = () => {
         </div>
         <div className="pt-6">
           <TabsContent
-            className="shadow border border-solid border-shadowColor bg-white"
+            className="rounded border border-solid shadow border-shadowColor bg-white overflow-hidden"
             value="Yours-Conversation"
           >
             <YourConversationData />
           </TabsContent>
           <TabsContent
-            className="shadow border border-solid border-shadowColor bg-white"
+            className="rounded border border-solid shadow border-shadowColor bg-white overflow-hidden"
             value="Guest-Conversation"
           >
             <GuestConversationData />

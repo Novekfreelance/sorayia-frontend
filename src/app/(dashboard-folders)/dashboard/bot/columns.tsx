@@ -5,8 +5,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
 
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
 export type BotData = {
   id: string;
   avatar: string;
@@ -71,8 +69,6 @@ export const columns: ColumnDef<BotData>[] = [
           <Button
             className="py-2 px-4 bg-transparent border-none hover:bg-accent"
             onClick={() => {
-              // Handle opening the conversation in another page
-              // You can use React Router or useNavigate here
               console.log(`Opening conversation: ${BotData.id}`);
             }}
           >
@@ -81,8 +77,6 @@ export const columns: ColumnDef<BotData>[] = [
           <Button
             className="py-2 px-4 bg-transparent border-none hover:bg-accent"
             onClick={() => {
-              // Handle opening the conversation in another page
-              // You can use React Router or useNavigate here
               console.log(`Opening conversation: ${BotData.id}`);
             }}
           >
@@ -91,8 +85,6 @@ export const columns: ColumnDef<BotData>[] = [
           <Button
             className="py-2 px-4 bg-transparent border-none hover:bg-accent"
             onClick={() => {
-              // Handle opening the conversation in another page
-              // You can use React Router or useNavigate here
               console.log(`Opening conversation: ${BotData.id}`);
             }}
           >

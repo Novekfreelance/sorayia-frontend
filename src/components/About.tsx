@@ -56,7 +56,7 @@ const About: React.FC = () => {
 						<AboutCard
 							title="Why Sorayia ?"
 							className="z-[5] translate-y-[32%]"
-							imageSrc="/Select.webp"
+							imageSrc="/public/Select.webp"
 							altText="Select icon"
 							imgWidth={60}
 							imgHeight={60}

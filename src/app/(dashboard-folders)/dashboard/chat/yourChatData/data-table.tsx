@@ -42,13 +42,13 @@ export function DataTable<TData, TValue>({
   const showPagination = table.getRowModel().rows?.length > 4 && table.getState().pagination.pageIndex === 0 || table.getState().pagination.pageIndex > 0;
 
   return (
-    <>
+    <div className="min-h-[444px] flex flex-col justify-between">
       <div>
         {table.getRowModel().rows?.length ? (
           <Table>
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (
-                <TableRow key={headerGroup.id} className="hover:bg-inherit p-2">
+                <TableRow key={headerGroup.id} className="hover:bg-inherit p-2 border-x-0 border-t-0">
                   {headerGroup.headers.map((header) => {
                     return (
                       <TableHead
@@ -67,12 +67,12 @@ export function DataTable<TData, TValue>({
                 </TableRow>
               ))}
             </TableHeader>
-            <TableBody className="[&_tr:last-child]:border">
+            <TableBody className="[&_tr:last-child]:border-y">
               {table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
-                  className="hover:bg-inherit"
+                  className="hover:bg-inherit border-x-0"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id} className="py-3 px-4 text-center">
@@ -87,7 +87,7 @@ export function DataTable<TData, TValue>({
             </TableBody>
           </Table>
         ) : (
-          <div className="h-full flex items-center justify-center">
+          <div className="h-full min-h-[444px] flex items-center justify-center">
             <h2 className="text-3xl text-primary">
               There are no guest conversation.
             </h2>
@@ -114,6 +114,6 @@ export function DataTable<TData, TValue>({
           </Button>
         </div>
       ) : null}
-    </>
+    </div>
   );
 }
