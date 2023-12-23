@@ -1,19 +1,15 @@
-"use client";
 import { MoreIcon, FolderOpenIcon } from "@/components/icons/SvgIcons";
 import { Input } from "@/components/ui/input";
 import { SearchIcon } from "lucide-react";
 import { ReactNode, FC } from "react";
+// import { ContentFolderProps } from "./page";
 
-export type ContentRouteProps = {
+type ContentRouteProps = {
   children: ReactNode;
-  params: {
-    id: string;
-  };
 };
 
 const ContentRouteLayout: FC<ContentRouteProps> = ({
   children,
-  params: { id },
 }) => {
   return (
     <div className="w-full h-full p-8">
@@ -23,7 +19,7 @@ const ContentRouteLayout: FC<ContentRouteProps> = ({
       <div className="flex items-center justify-between mt-3 py-3 px-3 shadow rounded border-solid border border-shadowColor bg-white">
         <div className="flex items-center gap-2">
           <FolderOpenIcon width={25} height={25} fill="#999999" />
-          <h3 className="text-xl-500 text-primary">Forlder&nbsp;{id}</h3>
+          <h3 className="text-xl-500 text-primary">Forlder&nbsp;</h3>
         </div>
         <MoreIcon width={20} height={20} fill="#999999" />
       </div>
@@ -51,7 +47,7 @@ const ContentRouteLayout: FC<ContentRouteProps> = ({
                   color="#999999"
                 />
                 <Input
-                  placeholder="Search Bot..."
+                  placeholder="Search Folder..."
                   // value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
                   // onChange={(event) =>
                   //   table.getColumn("email")?.setFilterValue(event.target.value)
