@@ -63,7 +63,7 @@ export const columns: ColumnDef<ContentData>[] = [
       const contentData = row.original;
       
       return (
-        <OpenFolderBtn ChatId={contentData.id}/>
+        <OpenFolderBtn FolderId={contentData.id}/>
       );
     },
   },
