@@ -6,7 +6,7 @@ import WriteToContentCard from "@/components/dashboard/contentPage/WriteToConten
 export const blockBoderStyle = "p-5 shadow rounded border-solid border border-shadowColor bg-white"
 
 
-const ContentFolferOption = () => {
+export const ContentFolferOption = () => {
 	return (
       <div className="w-full grid grid-cols-3 gap-5 p-3">
 				<WriteToContentCard />
@@ -15,5 +15,3 @@ const ContentFolferOption = () => {
 			</div>
 	)
 }
-
-export default ContentFolferOption
