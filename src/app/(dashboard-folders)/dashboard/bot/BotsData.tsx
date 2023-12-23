@@ -1,7 +1,7 @@
-import { BotData, columns } from "./columns";
+import { BotDataProps, columns } from "./columns";
 import { DataTable } from "./data-table";
 
-async function getBotData(): Promise<BotData[]> {
+async function getBotData(): Promise<BotDataProps[]> {
   // Fetch data from your API here.
   return [
     {

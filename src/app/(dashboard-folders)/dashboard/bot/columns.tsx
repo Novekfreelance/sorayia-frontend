@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
 
-export type BotData = {
+export type BotDataProps = {
   id: string;
   avatar: string;
   name: string;
@@ -14,7 +14,7 @@ export type BotData = {
   model: string;
 };
 
-export const columns: ColumnDef<BotData>[] = [
+export const columns: ColumnDef<BotDataProps>[] = [
   {
     accessorKey: "avatar",
     header: "Avatar",
