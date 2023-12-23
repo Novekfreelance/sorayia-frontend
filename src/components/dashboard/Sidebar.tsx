@@ -1,3 +1,4 @@
+"use client";
 import useSidebarStore from "@/app/store/SidebarStore";
 import Navbar from "./Navbar";
 
