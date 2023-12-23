@@ -71,19 +71,6 @@ export const DoubbleQuoteIcon: FC<IconProps> = ({ width, height, fill }) => {
     </svg>
   );
 };
-export const UserIcon: FC<IconProps> = ({ width, height, fill }) => {
-  return (
-    <svg
-      width={width}
-      height={height}
-      fill={fill}
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M4 22a8 8 0 0 1 16 0H4Zm8-9c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6Z" />
-    </svg>
-  );
-};
 export const EmailIcon: FC<IconProps> = ({ width, height, fill }) => {
   return (
     <svg
@@ -221,6 +208,13 @@ export const FolderIcon: FC<IconProps> = ({ width, height, fill }) => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M2.4 1.6A2.4 2.4 0 0 0 0 4v16a2.4 2.4 0 0 0 2.4 2.4h19.2A2.4 2.4 0 0 0 24 20V7.2a2.4 2.4 0 0 0-2.4-2.4h-9.269l-3.2-3.2H2.4Z" />
+    </svg>
+  );
+};
+export const FolderOpenIcon: FC<IconProps> = ({ width, height, fill }) => {
+  return (
+    <svg width={width} height={height} fill={fill} viewBox="0 0 24 24">
+      <path d="M22.678 10.369a1.519 1.519 0 0 0-1.219-.619H20.25v-1.5a1.5 1.5 0 0 0-1.5-1.5h-6.497L9.647 4.8a1.463 1.463 0 0 0-.9-.3H3.75A1.5 1.5 0 0 0 2.25 6v13.5a.74.74 0 0 0 .75.75h16.5a.75.75 0 0 0 .713-.516l2.671-8.006a1.529 1.529 0 0 0-.206-1.36ZM8.747 6l2.606 1.95c.258.197.575.303.9.3h6.497v1.5H6.544a1.5 1.5 0 0 0-1.425 1.022L3.75 14.878V6h4.997Z" />
     </svg>
   );
 };
@@ -395,6 +389,13 @@ export const PeopleIcon: FC<IconProps> = ({ width, height, fill }) => {
       />
       <path d="M7.8 12a3 3 0 1 0 .001-6 3 3 0 0 0 0 6Z" />
     </svg>
+  );
+};
+export const UserIcon: FC<IconProps> = ({ width, height, fill }) => {
+  return (
+    <svg width={width} height={height} fill={fill} viewBox="0 0 24 24">
+  <path fillRule="evenodd" d="M16 8c0 2.21-1.79 4-4 4s-4-1.79-4-4 1.79-4 4-4 4 1.79 4 4ZM4 18c0-2.66 5.33-4 8-4s8 1.34 8 4v2H4v-2Z" clipRule="evenodd" />
+</svg>
   );
 };
 export const DataUsageIcon: FC<IconProps> = ({ width, height, fill }) => {
