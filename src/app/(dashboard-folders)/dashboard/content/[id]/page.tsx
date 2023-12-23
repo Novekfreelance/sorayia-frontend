@@ -1,3 +1,4 @@
+"use client";
 import ImportWebLinkCard from "@/components/dashboard/contentPage/ImportWebLinkCard";
 import UploadContentCard from "@/components/dashboard/contentPage/UploadContentCard";
 import WriteToContentCard from "@/components/dashboard/contentPage/WriteToContentCard";
