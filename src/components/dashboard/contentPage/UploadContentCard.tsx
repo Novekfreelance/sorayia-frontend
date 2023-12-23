@@ -1,5 +1,4 @@
 import { UploadIcon } from "@/components/icons/SvgIcons";
-import { blockBoderStyle } from "@/app/(dashboard-folders)/dashboard/content/[id]/page";
 import { usePathname, useRouter } from "next/navigation";
 
 const UploadContentCard = () => {
@@ -7,7 +6,7 @@ const UploadContentCard = () => {
   const pathname = usePathname();
   return (
     <div
-      className={`${blockBoderStyle} space-y-3 cursor-pointer hover:bg-accent`}
+      className={`p-5 shadow rounded border-solid border border-shadowColor bg-white space-y-3 cursor-pointer hover:bg-accent`}
       onClick={() => {
         router.push(`${pathname}/upload`);
       }}
