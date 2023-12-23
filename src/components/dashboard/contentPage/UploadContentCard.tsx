@@ -1,14 +1,18 @@
 import { UploadIcon } from "@/components/icons/SvgIcons";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { FC } from "react";
 
-const UploadContentCard = () => {
+type UploadContentCardProps = {
+  id: string;
+};
+
+const UploadContentCard: FC<UploadContentCardProps> = ( { id }) => {
   const router = useRouter();
-  const pathname = usePathname();
   return (
     <div
       className={`p-5 shadow rounded border-solid border border-shadowColor bg-white space-y-3 cursor-pointer hover:bg-accent`}
       onClick={() => {
-        router.push(`${pathname}/upload`);
+        router.push(`/dashboard/content/${id}/upload`);
       }}
     >
       <UploadIcon width={45} height={45} fill="#999999" />
