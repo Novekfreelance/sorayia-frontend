@@ -4,9 +4,14 @@ import ImportWebLinkCard from "@/components/dashboard/contentPage/ImportWebLinkC
 import UploadContentCard from "@/components/dashboard/contentPage/UploadContentCard";
 import WriteToContentCard from "@/components/dashboard/contentPage/WriteToContentCard";
 import { FC } from "react";
-import {ContentRouteProps} from "@/app/(dashboard-folders)/dashboard/content/[id]/layout";
 
-export const ContentFolferOption: FC<ContentRouteProps> = ({params: { id }}) => {
+export type ContentFolderProps = {
+  params: {
+    id: string;
+  };
+}
+
+export const ContentFolferOption: FC<ContentFolderProps> = ({params: { id }}) => {
   return (
     <div className="w-full grid grid-cols-3 gap-5 p-3">
       <WriteToContentCard />
