@@ -7,12 +7,14 @@ import {
   ContentIcon,
   QuestionIcon,
   SettingIcon,
+  UserIcon,
 } from "../icons/SvgIcons";
 import { usePathname } from "next/navigation";
 import SidebarUserInfo from "./profil/SidebarUserInfo";
 import useSidebarStore from "@/app/store/SidebarStore";
 import useSidebarWidthEffect from "@/hooks/useSidebarWidthEffect";
 import useChatIsActive from "@/hooks/useChatLinkEffect";
+import useContentIsActive from "@/hooks/useContentLinkEffect";
 
 type NavbarProps = {
   style: React.CSSProperties;
@@ -35,6 +37,11 @@ const routes = [
     path: "/dashboard/content",
   },
   {
+    label: "Avatar",
+    icon: <UserIcon fill="#ffffff" height={29} width={29} />,
+    path: "/dashboard/avatar",
+  },
+  {
     label: "Setting",
     icon: <SettingIcon fill="#ffffff" height={29} width={29} />,
     path: "/dashboard/setting",
@@ -47,6 +54,7 @@ const Navbar: FC<NavbarProps> = ({ style }) => {
   const isSidebarWidthLessThan100 = sidebarWidth < 100;
   const pathname = usePathname();
   const isChatActive = useChatIsActive();
+  const isContentActive = useContentIsActive();
   return (
     <header
       className="h-full-dvh flex flex-col justify-between pb-8 bg-primary z-80 pt-5 overflow-hidden"
@@ -63,19 +71,31 @@ const Navbar: FC<NavbarProps> = ({ style }) => {
         <ul className="flex flex-col mt-5">
           {routes.map((route) => {
             const fullPath = route.path;
+            const navLinkActiveStyle =
+              "bg-primary-foreground before:absolute before:-translate-x-8 before:w-1 before:bg-white before:h-full before:z-[2]";
             const isActive = pathname === fullPath;
             const linkClasses = `text-white text-2xl-500 pl-8 leading-[60px] h-14 flex gap-2 items-center ${
-              isActive
-                ? "bg-primary-foreground before:absolute before:-translate-x-8 before:w-1 before:bg-white before:h-full before:z-[2]"
-                : "hover:bg-primary-foreground"
+              isActive ? navLinkActiveStyle : "hover:bg-primary-foreground"
             }`;
-
             return (
               <li key={fullPath} className="relative">
-                {route.path === "/dashboard/chat" ? (
+                {route.path === "/dashboard/chat" ||
+                route.path === "/dashboard/content" ? (
                   <Link
                     href={fullPath}
-                    className={`${linkClasses} ${isChatActive ? "bg-primary-foreground before:absolute before:-translate-x-8 before:w-1 before:bg-white before:h-full before:z-[2]" : ""}`}
+                    className={`
+                    ${linkClasses}
+                    ${
+                      isChatActive && route.path === "/dashboard/chat"
+                        ? navLinkActiveStyle
+                        : ""
+                    }
+                    ${
+                      isContentActive && route.path === "/dashboard/content"
+                        ? navLinkActiveStyle
+                        : ""
+                    }
+                    `}
                   >
                     {isSidebarWidthLessThan100 ? (
                       <span>{route.icon}</span>
