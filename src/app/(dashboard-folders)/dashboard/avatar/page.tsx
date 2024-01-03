@@ -14,7 +14,7 @@ const Avatar = () => {
             color="#999999"
           />
           <Input
-            placeholder="Search Folder..."
+            placeholder="Search Avatar..."
             // value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
             // onChange={(event) =>
             //   table.getColumn("email")?.setFilterValue(event.target.value)
