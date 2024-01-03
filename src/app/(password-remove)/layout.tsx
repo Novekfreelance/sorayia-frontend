@@ -1,12 +1,5 @@
 "use client";
-import { Montserrat } from "next/font/google";
 import { ReactNode, FC } from "react";
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal"],
-});
 
 type forgotPasswordLayoutProps = {
   children: ReactNode;
@@ -15,7 +8,7 @@ type forgotPasswordLayoutProps = {
 const forgotPasswordLayout: FC<forgotPasswordLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
-      <body className={montserrat.className}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 };
