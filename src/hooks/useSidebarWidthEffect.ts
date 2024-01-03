@@ -9,20 +9,18 @@ const useSidebarWidthEffect = () => {
   const pathname = usePathname();
   const defaultSidebarWidth = DEFAULT_SIDEBAR_WIDTH;
   const { setSidebarWidth } = useSidebarStore();
-  const profilPageUrl = "/dashboard/profil";
-  const botPageUrl = "/dashboard/bot";
-  const settingsPageUrl = "/dashboard/setting";
-  const contentUrlMatch = pathname.match(/\/dashboard\/content\/(.*)/);
-  const contentUrl = contentUrlMatch ? contentUrlMatch[1] : null;
 
-  const pathnameMatch = pathname === profilPageUrl || pathname === botPageUrl || contentUrl || pathname === settingsPageUrl;
+  const pathnameMatch = [
+    "/dashboard/profil",
+    "/dashboard/bot",
+    "/dashboard/avatar",
+    pathname.match(/\/dashboard\/setting\/(.*)/),
+    pathname.match(/\/dashboard\/content\/(.*)/),
+  ].some((match) => match);
+
   useEffect(() => {
-    if (pathnameMatch) {
-      setSidebarWidth(90);
-    } else {
-      setSidebarWidth(defaultSidebarWidth);
-    }
-  }, [pathnameMatch,defaultSidebarWidth,setSidebarWidth]);
+    const newSidebarWidth = pathnameMatch ? 90 : defaultSidebarWidth;
+    setSidebarWidth(newSidebarWidth);
+  }, [pathnameMatch, defaultSidebarWidth, setSidebarWidth]);
 };
-
 export default useSidebarWidthEffect;
