@@ -1,7 +1,7 @@
+import { redirect } from "next/navigation"
+
 const Setting = () => {
-	return (
-		<div>Setting page</div>
-	)
+	return redirect("/dashboard/setting/users")
 }
 
 export default Setting
