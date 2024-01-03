@@ -8,7 +8,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { EmailIcon, LockIcon, UserIcon } from "./icons/SvgIcons";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
-// import ky from "ky";
+import { useState } from "react";
+import Spinner from "./icons/Spinner";
 
 const FormSchema = z.object({
   username: z.string().min(2, {
@@ -34,8 +35,9 @@ const FormSchema = z.object({
 
 //Sign Up form
 const SignUpForm = () => {
-  // const router = useRouter();
-  // const { toast } = useToast();
+  const router = useRouter();
+  const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -47,20 +49,76 @@ const SignUpForm = () => {
   });
 
   const onSubmit = async (values: z.infer<typeof FormSchema>) => {
-    // const url = "/api/register";
-    // const body = JSON.stringify(values);
-    // try {
-    //   const response = await ky.post(url, { json: body });
-    //   if (response.status === 201) {
-    //     toast({ description: "Account created", variant: "success" });
-    //     router.push("/sign-in");
-    //     router.refresh();
-    //   } else {
-    //     toast({ description: "Something went wrong", variant: "destructive" });
-    //   }
-    // } catch (error) {
-    //   toast({ description: "Something went wrong", variant: "destructive" });
-    // }
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        "https://sorayia-backend.onrender.com/api/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: values.username,
+            email: values.email,
+            password: values.password,
+          }),
+        }
+      );
+      if (response.status === 200) {
+        const data = await response.json();
+        const userId = data.id;
+        localStorage.setItem("userId", userId);
+        toast({
+          title: "Sucess",
+          description: "Registration successful",
+          variant: "success"
+        });
+
+        // Redirect to email verify page
+        router.push("/email-verification");
+        router.refresh();
+      } else if (response.status === 400) {
+        const errorData = await response.json();
+        const errorMessages = [];
+  
+        if (errorData.username) {
+          errorMessages.push(errorData.username[0]);
+        }
+  
+        if (errorData.email) {
+          errorMessages.push(errorData.email[0]);
+        }
+  
+        toast({
+          title: "Error",
+          description: errorMessages.join(", "),
+          variant: "destructive"
+        });
+      } else {
+        toast({
+          title: "Oops",
+          description: "An error occurred",
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
+      if (error instanceof SyntaxError) {
+        toast({
+          title: "Format error",
+          description: "Error reading data from server",
+          variant: "destructive"
+        });
+      } else {
+        toast({
+          title: "Request error",
+          description: "An error occurred during the query",
+          variant: "destructive"
+        });
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -134,11 +192,12 @@ const SignUpForm = () => {
           />
         </div>
         <div className="text-center mt-6">
+
           <Button
             className="bg-primary uppercase text-white border-2 border-white rounded-[2.5rem] text-2xl py-7 px-14 min-w-[255px]"
             type="submit"
           >
-            Sign Up
+            {isLoading ? <Spinner /> : "Sign Up"}
           </Button>
         </div>
       </form>
