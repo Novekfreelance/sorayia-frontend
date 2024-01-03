@@ -1,7 +1,7 @@
 import AddNewFolderBtn from "@/components/dashboard/contentPage/AddNewFolderBtn"
 import { Input } from "@/components/ui/input"
 import { SearchIcon } from "lucide-react"
-import ContentData from "./FolderData"
+import ContentData from "./ContentData"
 
 const Content = () => {
 	return (
