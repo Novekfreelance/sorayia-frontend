@@ -20,6 +20,11 @@ html {
   content: "";
 }
 
+.input-no-spin::-webkit-inner-spin-button,
+.input-no-spin::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
