@@ -394,8 +394,24 @@ export const PeopleIcon: FC<IconProps> = ({ width, height, fill }) => {
 export const UserIcon: FC<IconProps> = ({ width, height, fill }) => {
   return (
     <svg width={width} height={height} fill={fill} viewBox="0 0 24 24">
-  <path fillRule="evenodd" d="M16 8c0 2.21-1.79 4-4 4s-4-1.79-4-4 1.79-4 4-4 4 1.79 4 4ZM4 18c0-2.66 5.33-4 8-4s8 1.34 8 4v2H4v-2Z" clipRule="evenodd" />
-</svg>
+      <path
+        fillRule="evenodd"
+        d="M16 8c0 2.21-1.79 4-4 4s-4-1.79-4-4 1.79-4 4-4 4 1.79 4 4ZM4 18c0-2.66 5.33-4 8-4s8 1.34 8 4v2H4v-2Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+};
+export const UserAddIcon: FC<IconProps> = ({ width, height, fill }) => {
+  return (
+    <svg width={width} height={height} fill={fill} viewBox="0 0 24 24">
+      <path d="M3.6 19.2s-1.2 0-1.2-1.2 1.2-4.8 7.2-4.8 7.2 3.6 7.2 4.8c0 1.2-1.2 1.2-1.2 1.2h-12Zm6-7.2a3.6 3.6 0 1 0 0-7.2 3.6 3.6 0 0 0 0 7.2Z" />
+      <path
+        fillRule="evenodd"
+        d="M18.6 8.4a.6.6 0 0 1 .6.6v1.8H21a.6.6 0 1 1 0 1.2h-1.8v1.8a.6.6 0 1 1-1.2 0V12h-1.8a.6.6 0 1 1 0-1.2H18V9a.6.6 0 0 1 .6-.6Z"
+        clipRule="evenodd"
+      />
+    </svg>
   );
 };
 export const DataUsageIcon: FC<IconProps> = ({ width, height, fill }) => {
@@ -463,6 +479,22 @@ export const MoreIcon: FC<IconProps> = ({ width, height, fill }) => {
       <path
         fillRule="evenodd"
         d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2Zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm-2 8c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+};
+export const ClipboardCheckIcon: FC<IconProps> = ({ width, height, fill }) => {
+  return (
+    <svg width={width} height={height} fill={fill} viewBox="0 0 24 24">
+      <path
+        fillRule="evenodd"
+        d="M8.687 2.928A1.8 1.8 0 0 1 9.96 2.4h3.6a1.8 1.8 0 0 1 1.8 1.8v1.2a1.8 1.8 0 0 1-1.8 1.8h-3.6a1.8 1.8 0 0 1-1.8-1.8V4.2c0-.477.19-.935.527-1.272Zm5.297.848a.6.6 0 0 0-.424-.176h-3.6a.6.6 0 0 0-.6.6v1.2a.6.6 0 0 0 .6.6h3.6a.6.6 0 0 0 .6-.6V4.2a.6.6 0 0 0-.176-.424Z"
+        clipRule="evenodd"
+      />
+      <path
+        fillRule="evenodd"
+        d="M5.76 4.2h1.2v1.2a3 3 0 0 0 3 3h3.6a3 3 0 0 0 3-3V4.2h1.2a2.4 2.4 0 0 1 2.4 2.4v12.6a2.4 2.4 0 0 1-2.4 2.4h-12a2.4 2.4 0 0 1-2.4-2.4V6.6a2.4 2.4 0 0 1 2.4-2.4Zm5.825 12.425 3.6-3.6a.6.6 0 1 0-.85-.85l-3.175 3.177-1.375-1.377a.6.6 0 1 0-.85.85l1.8 1.8a.6.6 0 0 0 .85 0Z"
         clipRule="evenodd"
       />
     </svg>
