@@ -15,6 +15,8 @@ import useSidebarStore from "@/app/store/SidebarStore";
 import useSidebarWidthEffect from "@/hooks/useSidebarWidthEffect";
 import useChatIsActive from "@/hooks/useChatLinkEffect";
 import useContentIsActive from "@/hooks/useContentLinkEffect";
+import useSettingIsActive from "@/hooks/useSettingLinkEffect";
+import Image from "next/image";
 
 type NavbarProps = {
   style: React.CSSProperties;
@@ -51,23 +53,28 @@ const routes = [
 const Navbar: FC<NavbarProps> = ({ style }) => {
   useSidebarWidthEffect();
   const { sidebarWidth } = useSidebarStore();
-  const isSidebarWidthLessThan100 = sidebarWidth < 100;
+  const isSidebarCollapsed = sidebarWidth < 100;
   const pathname = usePathname();
   const isChatActive = useChatIsActive();
   const isContentActive = useContentIsActive();
+  const isSettingActive = useSettingIsActive();
   return (
     <header
       className="h-full-dvh flex flex-col justify-between pb-8 bg-primary z-80 pt-5 overflow-hidden"
       style={style}
     >
       <nav>
-        <div>
-          {isSidebarWidthLessThan100 ? null : (
-            <Link className="text-4xl-700 text-white pl-8" href="/dashboard">
-              Sorayia
-            </Link>
-          )}
-        </div>
+        {isSidebarCollapsed ? (
+          <Image
+            src="/sorayia-logo.webp"
+            alt=""
+            className="ml-[6px]"
+            width={80}
+            height={81}
+          />
+        ) : (
+          <span className="text-4xl-700 text-white block pl-8">Sorayia</span>
+        )}
         <ul className="flex flex-col mt-5">
           {routes.map((route) => {
             const fullPath = route.path;
@@ -80,7 +87,8 @@ const Navbar: FC<NavbarProps> = ({ style }) => {
             return (
               <li key={fullPath} className="relative">
                 {route.path === "/dashboard/chat" ||
-                route.path === "/dashboard/content" ? (
+                route.path === "/dashboard/content" ||
+                route.path === "/dashboard/setting" ? (
                   <Link
                     href={fullPath}
                     className={`
@@ -95,9 +103,14 @@ const Navbar: FC<NavbarProps> = ({ style }) => {
                         ? navLinkActiveStyle
                         : ""
                     }
+                    ${
+                      isSettingActive && route.path === "/dashboard/setting"
+                        ? navLinkActiveStyle
+                        : ""
+                    }
                     `}
                   >
-                    {isSidebarWidthLessThan100 ? (
+                    {isSidebarCollapsed ? (
                       <span>{route.icon}</span>
                     ) : (
                       <>
@@ -108,7 +121,7 @@ const Navbar: FC<NavbarProps> = ({ style }) => {
                   </Link>
                 ) : (
                   <Link href={fullPath} className={linkClasses}>
-                    {isSidebarWidthLessThan100 ? (
+                    {isSidebarCollapsed ? (
                       <span>{route.icon}</span>
                     ) : (
                       <>
@@ -124,7 +137,7 @@ const Navbar: FC<NavbarProps> = ({ style }) => {
         </ul>
       </nav>
       <div className="flex flex-col gap-3 justify-start items-start">
-        {isSidebarWidthLessThan100 ? (
+        {isSidebarCollapsed ? (
           <span className="pl-10">
             <QuestionIcon fill="#ffffff" width={19} height={19} />
           </span>
