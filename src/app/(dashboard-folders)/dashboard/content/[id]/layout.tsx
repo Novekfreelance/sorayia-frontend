@@ -1,7 +1,9 @@
+import FolderTitle from "@/components/dashboard/contentPage/FolderTitle";
 import { MoreIcon, FolderOpenIcon } from "@/components/icons/SvgIcons";
 import { Input } from "@/components/ui/input";
 import { SearchIcon } from "lucide-react";
 import { ReactNode, FC } from "react";
+import FilesData from "./FilesData";
 // import { ContentFolderProps } from "./page";
 
 type ContentRouteProps = {
@@ -19,7 +21,7 @@ const ContentRouteLayout: FC<ContentRouteProps> = ({
       <div className="flex items-center justify-between mt-3 py-3 px-3 shadow rounded border-solid border border-shadowColor bg-white">
         <div className="flex items-center gap-2">
           <FolderOpenIcon width={25} height={25} fill="#999999" />
-          <h3 className="text-xl-500 text-primary">Folder&nbsp;</h3>
+          <FolderTitle />
         </div>
         <MoreIcon width={20} height={20} fill="#999999" />
       </div>
@@ -58,7 +60,7 @@ const ContentRouteLayout: FC<ContentRouteProps> = ({
             </div>
           </div>
           <div>
-
+            <FilesData />
           </div>
         </div>
       </div>
