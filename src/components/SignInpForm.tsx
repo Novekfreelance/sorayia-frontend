@@ -8,8 +8,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { EmailIcon, LockIcon } from "./icons/SvgIcons";
 import {FormSchema} from "@/constants/SignInFormSchemaConstant";
+import { useRouter } from "next/navigation";
+import { useToast } from "./ui/use-toast";
+import { useState } from "react";
+import Spinner from "./icons/Spinner";
 
 const SignInForm = () => {
+  const router = useRouter();
+  const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -19,9 +26,50 @@ const SignInForm = () => {
     },
   });
 
+  const onSubmit =async (values:z.infer<typeof FormSchema> ) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        "https://sorayia-backend.onrender.com/api/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: values.email,
+            password: values.password,
+          }),
+        }
+      );
+      if (response.status === 200) {
+        const data = await response.json();
+        const token = data.token;
+        localStorage.setItem("token", token);
+        toast({
+          title: "Success",
+          description: "Sign in successfully",
+          variant: "success",
+        });
+        router.push("/dashboard/chat");
+        router.refresh();
+      } else {
+        toast({
+          title: "Error",
+          description: "Invalid email or password",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   return (
     <Form {...form}>
-      <form >
+      <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="space-y-3">
           <FormField
             control={form.control}
@@ -78,7 +126,7 @@ const SignInForm = () => {
             className="bg-primary uppercase text-white border-2 border-primary rounded-[40px] text-2xl py-7 px-14 min-w-[255px]"
             type="submit"
           >
-            Sign In
+            {isLoading ? <Spinner /> : "Sign In"}
           </Button>
         </div>
       </form>
