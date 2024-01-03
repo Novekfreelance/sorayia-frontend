@@ -24,15 +24,15 @@ export const columns: ColumnDef<AvatarDataProps>[] = [
       const AvatarData = row.original;
       return (
         <div className="flex justify-center">
-          <Avatar className="w-20 h-20 !rounded">
+          <Avatar className="w-28 h-28 !rounded">
             <AvatarImage
               className="!rounded"
               src={AvatarData.avatar}
               alt="avatar"
             />
-            <AvatarFallback className="!rounded">
+            {/* <AvatarFallback className="!rounded">
               {AvatarData.avatar.slice(0, 2).toLocaleUpperCase()}
-            </AvatarFallback>
+            </AvatarFallback> */}
           </Avatar>
         </div>
       );
