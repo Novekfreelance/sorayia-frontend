@@ -17,7 +17,7 @@ const UploadContentCard: FC<UploadContentCardProps> = ( { id }) => {
     >
       <UploadIcon width={45} height={45} fill="#999999" />
       <h3 className="text-2xl text-primary">Upload</h3>
-      <p className="text-base-400 text-black">PDF Word or Powerpoint file</p>
+      <p className="text-base-400 text-black">Upload txt, pdf, or word</p>
     </div>
   );
 };
