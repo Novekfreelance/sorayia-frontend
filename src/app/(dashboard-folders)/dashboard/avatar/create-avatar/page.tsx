@@ -1,5 +1,5 @@
 "use client";
-import UploadAvatarForm from "@/components/dashboard/avatarPage/uploadAvatarForm";
+import UploadAvatarForm from "@/components/dashboard/avatarPage/UploadAvatarForm";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
