@@ -12,11 +12,13 @@ import { useRouter } from "next/navigation";
 import { useToast } from "./ui/use-toast";
 import { useState } from "react";
 import Spinner from "./icons/Spinner";
+import useUserStore from "@/app/store/AuthStore";
 
 const SignInForm = () => {
   const router = useRouter();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const {setUser} = useUserStore();
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -46,6 +48,7 @@ const SignInForm = () => {
         const data = await response.json();
         const token = data.token;
         localStorage.setItem("token", token);
+        setUser(data.user);
         toast({
           title: "Success",
           description: "Sign in successfully",
