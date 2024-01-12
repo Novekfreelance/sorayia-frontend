@@ -13,7 +13,7 @@ const UserAvatar = ({ className }: UserAvatarProps) => {
     <Avatar className={`${className}`}>
       {/* <AvatarImage src="" /> */}
       <AvatarFallback>
-        {user && user.username.slice(0, 2).toUpperCase()}
+        {user ? (user.username.slice(0, 2).toUpperCase()): ""}
       </AvatarFallback>
     </Avatar>
   );
