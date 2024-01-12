@@ -25,10 +25,7 @@ const HeroBanner = () => {
 						alt=""
 						width={492}
 						height={657}
-						style={{
-							width: "auto",
-							height: "auto",
-						}}
+						loading="lazy"
 					/>
 				</div>
 			</div>
