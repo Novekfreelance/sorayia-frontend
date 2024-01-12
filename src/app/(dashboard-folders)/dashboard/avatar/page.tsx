@@ -1,7 +1,8 @@
-import { Input } from "@/components/ui/input"
-import { SearchIcon } from "lucide-react"
-import AvatarsData from "./AvatarData"
-import AddNewAvatarBtn from "@/components/dashboard/avatarPage/AddNewAvatarBtn"
+import { Input } from "@/components/ui/input";
+import { SearchIcon } from "lucide-react";
+import AvatarsData from "./AvatarData";
+import AddNewAvatarBtn from "@/components/dashboard/avatarPage/AddNewAvatarBtn";
+
 
 const Avatar = () => {
 	return (
@@ -28,8 +29,9 @@ const Avatar = () => {
       </div>
       <div className="w-full pt-6">
         <div className="rounded border border-solid shadow border-shadowColor bg-white overflow-hidden">
-          <AvatarsData />
+          <AvatarsData  />
         </div>
+        {/* <ReadyPlayerMeFrame /> */}
       </div>
     </div>
 	)
