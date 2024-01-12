@@ -1,3 +1,4 @@
+"use client";
 import UploadForm from "@/components/dashboard/uploadPage/UploadForm"
 
 const UploadPage = () => {
