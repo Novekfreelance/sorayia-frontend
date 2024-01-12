@@ -30,9 +30,9 @@ export const columns: ColumnDef<AvatarDataProps>[] = [
               src={AvatarData.avatar}
               alt="avatar"
             />
-            {/* <AvatarFallback className="!rounded">
+            <AvatarFallback className="!rounded">
               {AvatarData.avatar.slice(0, 2).toLocaleUpperCase()}
-            </AvatarFallback> */}
+            </AvatarFallback>
           </Avatar>
         </div>
       );
