@@ -5,13 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { FC, useState } from "react";
-import Spinner from "@/components/icons/Spinner";
 import { useRouter } from "next/navigation";
-
-// type AvatarProps = {
-// 	avatarUrl: string;
-// }
 
 const FormSchema = z.object({
   name: z
