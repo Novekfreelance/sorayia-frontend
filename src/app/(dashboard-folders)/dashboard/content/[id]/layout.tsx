@@ -4,14 +4,15 @@ import { Input } from "@/components/ui/input";
 import { SearchIcon } from "lucide-react";
 import { ReactNode, FC } from "react";
 import FilesData from "./FilesData";
-// import { ContentFolderProps } from "./page";
+import { ContentFolderProps } from "./page";
 
 type ContentRouteProps = {
   children: ReactNode;
 };
 
-const ContentRouteLayout: FC<ContentRouteProps> = ({
+const ContentRouteLayout: FC<ContentRouteProps & ContentFolderProps> = ({
   children,
+  params: { id },
 }) => {
   return (
     <div className="w-full h-full p-8">
@@ -21,7 +22,7 @@ const ContentRouteLayout: FC<ContentRouteProps> = ({
       <div className="flex items-center justify-between mt-3 py-3 px-3 shadow rounded border-solid border border-shadowColor bg-white">
         <div className="flex items-center gap-2">
           <FolderOpenIcon width={25} height={25} fill="#999999" />
-          <FolderTitle />
+          <FolderTitle id= {id}/>
         </div>
         <MoreIcon width={20} height={20} fill="#999999" />
       </div>
@@ -31,7 +32,7 @@ const ContentRouteLayout: FC<ContentRouteProps> = ({
           <p className="text-xl-400 text-black text-center">You can create a new document in this folder by writing, uploading an existing document or importing a webpage
           </p>
         </div>
-        <div className="w-full flex flex-col items-center justify-center min-h-[200px]">
+        <div className="w-full flex flex-col items-center justify-center min-h-[200px] my-5">
           {children}
         </div>
         <div>
@@ -59,7 +60,7 @@ const ContentRouteLayout: FC<ContentRouteProps> = ({
               </div>
             </div>
           </div>
-          <div>
+          <div className="mt-4">
             <FilesData />
           </div>
         </div>
