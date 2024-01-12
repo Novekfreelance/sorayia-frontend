@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import UserAvatar from "./UserAvatar";
 import useSidebarStore from "@/app/store/SidebarStore";
