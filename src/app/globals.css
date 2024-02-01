@@ -20,6 +20,15 @@ html {
   content: "";
 }
 
+.model input[type="radio"]:checked ~ label {
+  background-color: #1d3e81 !important;
+  transition: background-color 0.2s ease;
+  color: white;
+}
+.model input[type="radio"]:checked ~ label > * {
+  color: white;
+}
+
 .input-no-spin::-webkit-inner-spin-button,
 .input-no-spin::-webkit-outer-spin-button {
   -webkit-appearance: none;
