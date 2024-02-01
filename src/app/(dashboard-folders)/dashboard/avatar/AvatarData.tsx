@@ -2,7 +2,7 @@ import React from "react";
 import { AvatarDataProps, columns } from "./columns";
 import { AvatarDataTable } from "./data-table";
 
-async function getAvatarData(): Promise<AvatarDataProps[]> {
+export async function getAvatarData(): Promise<AvatarDataProps[]> {
   // Fetch data from your API here.
   return [
     {
