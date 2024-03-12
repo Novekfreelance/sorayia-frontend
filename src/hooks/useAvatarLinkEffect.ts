@@ -1,0 +1,13 @@
+"use client";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+export default function useAvatarIsActive() {
+  const pathname = usePathname();
+  const [isAvatarActive, setIsAvatarActive] = useState(false);
+
+  useEffect(() => {
+    setIsAvatarActive(pathname.includes("/avatar"));
+  }, [pathname]);
+
+  return isAvatarActive;
+}
