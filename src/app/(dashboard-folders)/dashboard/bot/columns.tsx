@@ -7,10 +7,14 @@ import { ColumnDef } from "@tanstack/react-table";
 
 export type BotDataProps = {
   id: string;
-  avatar: string;
+  avatar: {
+    id: string;
+    name: string;
+    url: string;
+  };
   name: string;
   description: string;
-  createDate: string;
+  // createDate: string;
   model: string;
 };
 
@@ -26,11 +30,11 @@ export const columns: ColumnDef<BotDataProps>[] = [
           <Avatar>
             <AvatarImage
               className="rounded"
-              src={BotData.avatar}
+              src={BotData.avatar.url}
               alt="avatar"
             />
             <AvatarFallback>
-              {BotData.avatar.slice(0, 2).toLocaleUpperCase()}
+              {BotData.avatar.name.slice(0, 2).toLocaleUpperCase()}
             </AvatarFallback>
           </Avatar>
         </div>
@@ -44,20 +48,28 @@ export const columns: ColumnDef<BotDataProps>[] = [
   {
     accessorKey: "description",
     header: "Description",
+    cell: ({ row }) => {
+      const BotData = row.original;
+      return (
+        <div className="text-center font-medium max-w-xs mx-auto cursor-default line-clamp-2">
+          {BotData.description}
+        </div>
+      );
+    },
   },
   {
     accessorKey: "model",
     header: "Model",
   },
-  {
-    accessorKey: "createDate",
-    header: "Created on",
-    cell: ({ row }) => {
-      const date = new Date(row.getValue("createDate"));
-      const formatted = date.toLocaleDateString();
-      return <div className="text-center font-medium">{formatted}</div>;
-    },
-  },
+  // {
+  //   accessorKey: "createDate",
+  //   header: "Created on",
+  //   cell: ({ row }) => {
+  //     const date = new Date(row.getValue("createDate"));
+  //     const formatted = date.toLocaleDateString();
+  //     return <div className="text-center font-medium">{formatted}</div>;
+  //   },
+  // },
   {
     id: "action",
     header: "Action",
