@@ -1,10 +1,9 @@
 "use client";
-import UploadForm from "@/components/dashboard/uploadPage/UploadForm"
+import UploadForm from "@/components/dashboard/uploadPage/UploadForm";
+import { ContentFolderProps } from "../page";
 
-const UploadPage = () => {
-	return (
-		<UploadForm />
-	)
-}
+const UploadPage = ({ params }: ContentFolderProps) => {
+  return <UploadForm id={params.id} />;
+};
 
-export default UploadPage
+export default UploadPage;
