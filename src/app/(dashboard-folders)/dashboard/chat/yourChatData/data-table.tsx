@@ -2,13 +2,6 @@
 import { Button } from "@/components/ui/button";
 
 import {
-  ColumnDef,
-  flexRender,
-  getCoreRowModel,
-  getPaginationRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
-import {
   Table,
   TableBody,
   TableCell,
@@ -16,6 +9,13 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import {
+  ColumnDef,
+  flexRender,
+  getCoreRowModel,
+  getPaginationRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -39,7 +39,10 @@ export function DataTable<TData, TValue>({
     },
   });
 
-  const showPagination = table.getRowModel().rows?.length > 4 && table.getState().pagination.pageIndex === 0 || table.getState().pagination.pageIndex > 0;
+  const showPagination =
+    (table.getRowModel().rows?.length > 4 &&
+      table.getState().pagination.pageIndex === 0) ||
+    table.getState().pagination.pageIndex > 0;
 
   return (
     <div className="min-h-[444px] flex flex-col justify-between">
@@ -48,13 +51,13 @@ export function DataTable<TData, TValue>({
           <Table>
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (
-                <TableRow key={headerGroup.id} className="hover:bg-inherit p-2 border-x-0 border-t-0">
+                <TableRow
+                  key={headerGroup.id}
+                  className="hover:bg-inherit p-2 border-x-0 border-t-0"
+                >
                   {headerGroup.headers.map((header) => {
                     return (
-                      <TableHead
-                      key={header.id}
-                      className="text-center"
-                      >
+                      <TableHead key={header.id} className="text-center">
                         {header.isPlaceholder
                           ? null
                           : flexRender(
