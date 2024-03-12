@@ -1,59 +1,54 @@
-import React from "react";
+"use client";
+import UserStore from "@/app/store/AuthStore";
+import Spinner from "@/components/icons/Spinner";
+import { useEffect, useState } from "react";
 import { AvatarDataProps, columns } from "./columns";
 import { AvatarDataTable } from "./data-table";
 
-export async function getAvatarData(): Promise<AvatarDataProps[]> {
-  // Fetch data from your API here.
-  return [
-    {
-      id: "728ed52f",
-      AvatarName: "Maurice",
-      createDate: "2023-10-05T00:27:24.379Z",
-      avatar: "/avatar1.webp",
-    },
-    {
-      id: "0oshhh22",
-      AvatarName: "Lucie",
-      createDate: "2023-08-05T00:27:24.379Z",
-      avatar: "/avatar2.webp",
-    },
-    {
-      id: "668ed52f",
-      AvatarName: "Lucas",
-      createDate: "2023-09-05T00:27:24.379Z",
-      avatar: "/avatar3.webp",
-    },
-    {
-      id: "668ed52f",
-      AvatarName: "Avatar Name",
-      createDate: "2023-10-05T00:27:24.379Z",
-      avatar: "/avatar1.webp",
-    },
-    {
-      id: "668ed52f",
-      AvatarName: "Avatar Name",
-      createDate: "2023-10-05T00:27:24.379Z",
-      avatar: "/avatar2.webp",
-    },
-    {
-      id: "668ed52f",
-      AvatarName: "Avatar Name",
-      createDate: "2023-10-05T00:27:24.379Z",
-      avatar: "/avatar3.webp",
-    },
-    {
-      id: "668ed52f",
-      AvatarName: "Avatar Name",
-      createDate: "2023-10-05T00:27:24.379Z",
-      avatar: "/avatar1.webp",
-    },
-    // ...
-  ];
-}
+export const AvatarsData = () => {
+  const { data, isLoading } = GetAvatarData();
 
-const AvatarsData = async () => {
-  const data = await getAvatarData();
-  return <AvatarDataTable columns={columns} data={data}/>;
+  return (
+    <>
+      {isLoading && (
+        <div className="min-h-[444px] w-full flex items-center justify-center">
+          <Spinner />
+        </div>
+      )}
+      {data.length > 0 && <AvatarDataTable columns={columns} data={data} />}
+    </>
+  );
 };
 
-export default AvatarsData;
+export const GetAvatarData = () => {
+  const { token } = UserStore();
+  const [data, setData] = useState<AvatarDataProps[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch(
+          "https://sorayia-backend.onrender.com/api/get_avatars",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Token ${token}`,
+            },
+          }
+        );
+        const fetchedData = await response.json();
+        setData(fetchedData);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchData();
+  }, [token]);
+
+  return { data, isLoading };
+};
