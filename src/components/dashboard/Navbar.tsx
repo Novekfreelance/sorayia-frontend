@@ -1,5 +1,14 @@
 "use client";
+import useSidebarStore from "@/app/store/SidebarStore";
+import useAvatarIsActive from "@/hooks/useAvatarLinkEffect";
+import useBotIsActive from "@/hooks/useBotLinkEffect";
+import useChatIsActive from "@/hooks/useChatLinkEffect";
+import useContentIsActive from "@/hooks/useContentLinkEffect";
+import useSettingIsActive from "@/hooks/useSettingLinkEffect";
+import useSidebarWidthEffect from "@/hooks/useSidebarWidthEffect";
+import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FC } from "react";
 import {
   BotIcon,
@@ -9,14 +18,7 @@ import {
   SettingIcon,
   UserIcon,
 } from "../icons/SvgIcons";
-import { usePathname } from "next/navigation";
 import SidebarUserInfo from "./profil/SidebarUserInfo";
-import useSidebarStore from "@/app/store/SidebarStore";
-import useSidebarWidthEffect from "@/hooks/useSidebarWidthEffect";
-import useChatIsActive from "@/hooks/useChatLinkEffect";
-import useContentIsActive from "@/hooks/useContentLinkEffect";
-import useSettingIsActive from "@/hooks/useSettingLinkEffect";
-import Image from "next/image";
 
 type NavbarProps = {
   style: React.CSSProperties;
@@ -46,7 +48,7 @@ const routes = [
   {
     label: "Setting",
     icon: <SettingIcon fill="#ffffff" height={29} width={29} />,
-    path: "/dashboard/setting",
+    path: "/dashboard/setting/users",
   },
 ];
 
@@ -58,6 +60,8 @@ const Navbar: FC<NavbarProps> = ({ style }) => {
   const isChatActive = useChatIsActive();
   const isContentActive = useContentIsActive();
   const isSettingActive = useSettingIsActive();
+  const isAvatarActive = useAvatarIsActive();
+  const isBotActive = useBotIsActive();
   return (
     <header
       className="h-full-dvh flex flex-col justify-between pb-8 bg-primary z-80 pt-5 overflow-hidden"
@@ -84,11 +88,16 @@ const Navbar: FC<NavbarProps> = ({ style }) => {
             const linkClasses = `text-white text-2xl-500 pl-8 leading-[60px] h-14 flex gap-2 items-center ${
               isActive ? navLinkActiveStyle : "hover:bg-primary-foreground"
             }`;
+            const SpecialLinks = [
+              "/dashboard/chat",
+              "/dashboard/content",
+              "/dashboard/setting",
+              "/dashboard/avatar",
+              "/dashboard/bot",
+            ];
             return (
               <li key={fullPath} className="relative">
-                {route.path === "/dashboard/chat" ||
-                route.path === "/dashboard/content" ||
-                route.path === "/dashboard/setting" ? (
+                {SpecialLinks.includes(fullPath) ? (
                   <Link
                     href={fullPath}
                     className={`
@@ -105,6 +114,16 @@ const Navbar: FC<NavbarProps> = ({ style }) => {
                     }
                     ${
                       isSettingActive && route.path === "/dashboard/setting"
+                        ? navLinkActiveStyle
+                        : ""
+                    }
+                    ${
+                      isAvatarActive && route.path === "/dashboard/avatar"
+                        ? navLinkActiveStyle
+                        : ""
+                    }
+                    ${
+                      isBotActive && route.path === "/dashboard/bot"
                         ? navLinkActiveStyle
                         : ""
                     }
