@@ -1,30 +1,29 @@
 "use client";
 
+import DeleteFolderBtn from "@/components/dashboard/contentPage/DeleteFolderBtn";
 import OpenFolderBtn from "@/components/dashboard/contentPage/OpenFolderBtn";
-import { DeleteIcon, FolderIcon, PencilIcon } from "@/components/icons/SvgIcons";
+import { FolderIcon, PencilIcon } from "@/components/icons/SvgIcons";
 import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
 
-export type ContentData = {
+export type ContentDataProps = {
   id: string;
-  ContentName: string;
+  name: string;
 };
 
-export const columns: ColumnDef<ContentData>[] = [
+export const columns: ColumnDef<ContentDataProps>[] = [
   {
-    accessorKey: "ContentName",
+    accessorKey: "name",
     header: "Title",
-    cell: ({row}) => {
-      const contentData= row.original;
+    cell: ({ row }) => {
+      const contentData = row.original;
       return (
         <div className="flex items-center justify-center gap-5">
           <FolderIcon fill="#999999" height={23} width={23} />
-          <h3 className="text-xl-500 text-primary">
-            {contentData.ContentName}
-          </h3>
+          <h3 className="text-xl-500 text-primary">{contentData.name}</h3>
         </div>
-      )
-    }
+      );
+    },
   },
   {
     id: "operations",
@@ -42,16 +41,7 @@ export const columns: ColumnDef<ContentData>[] = [
           >
             <PencilIcon fill="#1D3E80" height={23} width={23} />
           </Button>
-          <Button
-            className="py-2 px-4 bg-transparent border-none hover:bg-accent"
-            onClick={() => {
-              console.log(
-                `Opening folder: ${contentData.ContentName}`
-              );
-            }}
-          >
-            <DeleteIcon fill="#1D3E80" height={23} width={23} />
-          </Button>
+          <DeleteFolderBtn id={contentData.id} />
         </div>
       );
     },
@@ -61,10 +51,8 @@ export const columns: ColumnDef<ContentData>[] = [
     header: "Action",
     cell: ({ row }) => {
       const contentData = row.original;
-      
-      return (
-        <OpenFolderBtn FolderId={contentData.id}/>
-      );
+
+      return <OpenFolderBtn FolderId={contentData.id} />;
     },
   },
 ];
