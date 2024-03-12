@@ -1,11 +1,9 @@
+import AddNewYourConversationBtn from "@/components/dashboard/chatPage/AddNewYourConversationBtn";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SearchIcon } from "lucide-react";
-import YourConversationData from "./yourChatData/YourConversationData";
 import GuestConversationData from "./guestChatData/GuestConversationData";
-import AddNewYourConversationBtn from "@/components/dashboard/AddNewYourConversationBtn";
-
-
+import YourConversationData from "./yourChatData/YourConversationData";
 
 const Chat = () => {
   return (
@@ -42,6 +40,7 @@ const Chat = () => {
             <TabsTrigger
               className="data-[state=active]:bg-transparent"
               value="Guest-Conversation"
+              disabled
             >
               Guest
             </TabsTrigger>
