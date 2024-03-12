@@ -1,6 +1,5 @@
-import { ConversationData, columns } from "./columns"
-import { DataTable } from "./data-table"
-
+import { ConversationData, columns } from "./columns";
+import { DataTable } from "./data-table";
 
 async function getData(): Promise<ConversationData[]> {
   // Fetch data from your API here.
@@ -33,15 +32,29 @@ async function getData(): Promise<ConversationData[]> {
       id: "668ed52f",
       ConversationName: "Conversation",
     },
+    {
+      id: "668ed52f",
+      ConversationName: "Conversation",
+    },
+    {
+      id: "668ed52f",
+      ConversationName: "Conversation",
+    },
+    {
+      id: "668ed52f",
+      ConversationName: "Conversation",
+    },
+    {
+      id: "668ed52f",
+      ConversationName: "Conversation",
+    },
     // ...
-  ]
+  ];
 }
 
 const YourConversationData = async () => {
-	const data = await getData()
-	return (
-		<DataTable columns={columns} data={data}/>
-	)
-}
+  const data = await getData();
+  return <DataTable columns={columns} data={data} />;
+};
 
-export default YourConversationData
+export default YourConversationData;
