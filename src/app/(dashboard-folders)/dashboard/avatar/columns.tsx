@@ -31,7 +31,7 @@ export const columns: ColumnDef<AvatarDataProps>[] = [
               alt="avatar"
             />
             <AvatarFallback className="!rounded">
-              {AvatarData.avatar.slice(0, 2).toLocaleUpperCase()}
+              {AvatarData.AvatarName.slice(0, 2).toUpperCase()}
             </AvatarFallback>
           </Avatar>
         </div>
