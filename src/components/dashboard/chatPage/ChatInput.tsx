@@ -1,5 +1,7 @@
 "use client";
 
+import { SendIcon } from "@/components/icons/SvgIcons";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -7,13 +9,11 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
+import { Textarea } from "@/components/ui/textarea";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FC } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { FC } from "react";
-import { SendIcon } from "@/components/icons/SvgIcons";
 
 type ChatInputProps = {
   chatID: string;
@@ -38,7 +38,7 @@ const ChatInput: FC<ChatInputProps> = ({ chatID }) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex w-full bg-white rounded-t rounded-b-none border border-solid shadow border-shadowColor p-1"
+        className="flex items-center w-full bg-white rounded-t rounded-b-none border border-solid shadow border-shadowColor p-1 max-h-56"
       >
         <FormField
           control={form.control}
@@ -47,9 +47,14 @@ const ChatInput: FC<ChatInputProps> = ({ chatID }) => {
             <FormItem className="flex-1">
               <FormControl>
                 <Textarea
-                  className="bg-transparent border-none w-full min-h-[48px] h-12 max-h-[200px] resize-none p-2 focus:outline-none"
+                  className="bg-white border-none w-full h-10 max-h-36 resize-none px-2 py-5 focus:outline-none"
                   placeholder="Enter your message"
                   {...field}
+                  onInput={(e) => {
+                    const target = e.target as HTMLTextAreaElement;
+                    target.style.height = "auto";
+                    target.style.height = target.scrollHeight + "px";
+                  }}
                 />
               </FormControl>
               <FormMessage className="absolute" />
