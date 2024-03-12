@@ -4,7 +4,7 @@ import type {
   CreateBotContext,
   Folders,
   Preferences,
-} from "@/types/CreateBoxContext";
+} from "@/types/CreateBotContext";
 import { create } from "zustand";
 
 const UseProcessContext = create<CreateBotContext>((set) => ({
