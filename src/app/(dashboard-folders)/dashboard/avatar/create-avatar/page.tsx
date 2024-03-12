@@ -41,6 +41,10 @@ const ReadyPlayerMeFrame = () => {
         // Get avatar GLB URL
         if (json.eventName === "v1.avatar.exported") {
           setAvatarUrl(json.data.url.replace(".glb", ".png"));
+          localStorage.setItem(
+            "avatarUrl",
+            json.data.url.replace(".glb", ".png")
+          );
           setIsFrameLoaded(true);
           setIsAvatarLoaded(true);
         }
