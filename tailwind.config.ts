@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const {fontFamily} = require("tailwindcss/defaultTheme")
+const { fontFamily } = require("tailwindcss/defaultTheme");
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -94,21 +94,21 @@ module.exports = {
           fontWeight: "600",
         },
       ],
-      'xl-600': [
+      "xl-600": [
         "18px",
         {
           lineHeight: "25px",
           fontWeight: "600",
         },
       ],
-      'xl-500': [
+      "xl-500": [
         "18px",
         {
           lineHeight: "22px",
           fontWeight: "500",
         },
       ],
-      'xl-400': [
+      "xl-400": [
         "18px",
         {
           lineHeight: "25px",
@@ -147,11 +147,11 @@ module.exports = {
     extend: {
       fonts: {
         sans: {
-          family: ['Montserrat', 'sans-serif'],
+          family: ["Montserrat", "sans-serif"],
         },
       },
       dropShadow: {
-        xl: '0px 8px 24px rgba(18, 28, 53, 0.1)',
+        xl: "0px 8px 24px rgba(18, 28, 53, 0.1)",
       },
       height: {
         "full-dvh": "100dvh",
@@ -212,11 +212,11 @@ module.exports = {
         shadowBoderColor: "hsl(var--shadowColor)",
       },
       boxShadow: {
-        DEFAULT: 'rgba(0, 0, 0, 0.06) 0px 1px 5px',
-        100: 'rgba(0, 0, 0, 0.25) 0px 2px 7px',
+        DEFAULT: "rgba(0, 0, 0, 0.06) 0px 1px 5px",
+        100: "rgba(0, 0, 0, 0.25) 0px 2px 7px",
       },
       borderColor: {
-        DEFAULT: 'rgba(0, 0, 0, 0.1)',
+        DEFAULT: "rgba(0, 0, 0, 0.1)",
       },
       borderRadius: {
         none: "0",
@@ -236,8 +236,7 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
-      
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("@tailwindcss/line-clamp")],
 };
