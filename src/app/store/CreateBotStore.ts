@@ -11,7 +11,7 @@ const UseProcessContext = create<CreateBotContext>((set) => ({
   step: "1",
   preferences: {
     name: "",
-    type: "",
+    prompt: "",
     description: "",
     language: "",
     model: "OpenAI GPT3.5" || "gpt-3.5-turbo-16k" || "OpenAI GPT4",
