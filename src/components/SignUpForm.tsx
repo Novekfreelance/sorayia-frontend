@@ -1,15 +1,15 @@
 "use client";
+import { useToast } from "@/components/ui/use-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import Spinner from "./icons/Spinner";
+import { EmailIcon, LockIcon, UserIcon } from "./icons/SvgIcons";
 import { Button } from "./ui/button";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
 import { Input } from "./ui/input";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { EmailIcon, LockIcon, UserIcon } from "./icons/SvgIcons";
-import { useRouter } from "next/navigation";
-import { useToast } from "@/components/ui/use-toast";
-import { useState } from "react";
-import Spinner from "./icons/Spinner";
 
 const FormSchema = z.object({
   username: z.string().min(2, {
@@ -72,7 +72,7 @@ const SignUpForm = () => {
         toast({
           title: "Sucess",
           description: "Registration successful",
-          variant: "success"
+          variant: "success",
         });
 
         // Redirect to email verify page
@@ -81,25 +81,25 @@ const SignUpForm = () => {
       } else if (response.status === 400) {
         const errorData = await response.json();
         const errorMessages = [];
-  
+
         if (errorData.username) {
           errorMessages.push(errorData.username[0]);
         }
-  
+
         if (errorData.email) {
           errorMessages.push(errorData.email[0]);
         }
-  
+
         toast({
           title: "Error",
           description: errorMessages.join(", "),
-          variant: "destructive"
+          variant: "destructive",
         });
       } else {
         toast({
           title: "Oops",
           description: "An error occurred",
-          variant: "destructive"
+          variant: "destructive",
         });
       }
     } catch (error) {
@@ -107,13 +107,13 @@ const SignUpForm = () => {
         toast({
           title: "Format error",
           description: "Error reading data from server",
-          variant: "destructive"
+          variant: "destructive",
         });
       } else {
         toast({
           title: "Request error",
           description: "An error occurred during the query",
-          variant: "destructive"
+          variant: "destructive",
         });
       }
     } finally {
@@ -192,9 +192,9 @@ const SignUpForm = () => {
           />
         </div>
         <div className="text-center mt-6">
-
           <Button
             className="bg-primary uppercase text-white border-2 border-white rounded-[2.5rem] text-2xl py-7 px-14 min-w-[255px]"
+            disabled={isLoading}
             type="submit"
           >
             {isLoading ? <Spinner /> : "Sign Up"}
