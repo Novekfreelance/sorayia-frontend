@@ -1,11 +1,11 @@
-import AddNewFolderBtn from "@/components/dashboard/contentPage/AddNewFolderBtn"
-import { Input } from "@/components/ui/input"
-import { SearchIcon } from "lucide-react"
-import ContentData from "./ContentData"
+import AddNewFolderBtn from "@/components/dashboard/contentPage/AddNewFolderBtn";
+import { Input } from "@/components/ui/input";
+import { SearchIcon } from "lucide-react";
+import ContentData from "./ContentData";
 
 const Content = () => {
-	return (
-		<div className="w-full h-full p-8">
+  return (
+    <div className="w-full h-full p-8">
       <div className="flex justify-between items-center">
         <h1 className="text-3xl-600 text-black">Content</h1>
         <div className="relative">
@@ -27,12 +27,12 @@ const Content = () => {
         <AddNewFolderBtn />
       </div>
       <div className="w-full pt-6">
-        <div className="rounded border border-solid shadow border-shadowColor bg-white overflow-hidden">
+        <div className="rounded border border-solid shadow border-shadowColor bg-white overflow-hidden min-h-[444px]">
           <ContentData />
         </div>
       </div>
     </div>
-	)
-}
+  );
+};
 
-export default Content
+export default Content;
