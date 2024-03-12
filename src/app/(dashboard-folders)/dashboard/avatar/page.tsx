@@ -1,12 +1,11 @@
+import AddNewAvatarBtn from "@/components/dashboard/avatarPage/AddNewAvatarBtn";
 import { Input } from "@/components/ui/input";
 import { SearchIcon } from "lucide-react";
-import AvatarsData from "./AvatarData";
-import AddNewAvatarBtn from "@/components/dashboard/avatarPage/AddNewAvatarBtn";
-
+import { AvatarsData } from "./AvatarData";
 
 const Avatar = () => {
-	return (
-		<div className="w-full h-full p-8">
+  return (
+    <div className="w-full h-full p-8">
       <div className="flex justify-between items-center">
         <h1 className="text-3xl-600 text-black">Avatars</h1>
         <div className="relative">
@@ -29,12 +28,12 @@ const Avatar = () => {
       </div>
       <div className="w-full pt-6">
         <div className="rounded border border-solid shadow border-shadowColor bg-white overflow-hidden">
-          <AvatarsData  />
+          <AvatarsData />
         </div>
         {/* <ReadyPlayerMeFrame /> */}
       </div>
     </div>
-	)
-}
+  );
+};
 
-export default Avatar
+export default Avatar;
