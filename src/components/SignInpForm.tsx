@@ -1,24 +1,24 @@
 "use client";
+import UserStore from "@/app/store/AuthStore";
+import { FormSchema } from "@/constants/SignInFormSchemaConstant";
+import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import Spinner from "./icons/Spinner";
+import { EmailIcon, LockIcon } from "./icons/SvgIcons";
 import { Button } from "./ui/button";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
 import { Input } from "./ui/input";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import Link from "next/link";
-import { EmailIcon, LockIcon } from "./icons/SvgIcons";
-import {FormSchema} from "@/constants/SignInFormSchemaConstant";
-import { useRouter } from "next/navigation";
 import { useToast } from "./ui/use-toast";
-import { useState } from "react";
-import Spinner from "./icons/Spinner";
-import useUserStore from "@/app/store/AuthStore";
 
 const SignInForm = () => {
   const router = useRouter();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
-  const {setUser} = useUserStore();
+  const { setUser, setToken } = UserStore();
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -28,7 +28,7 @@ const SignInForm = () => {
     },
   });
 
-  const onSubmit =async (values:z.infer<typeof FormSchema> ) => {
+  const onSubmit = async (values: z.infer<typeof FormSchema>) => {
     setIsLoading(true);
     try {
       const response = await fetch(
@@ -46,16 +46,16 @@ const SignInForm = () => {
       );
       if (response.status === 200) {
         const data = await response.json();
-        const token = data.token;
-        localStorage.setItem("token", token);
+        setToken(data.token);
         setUser(data.user);
         toast({
           title: "Success",
           description: "Sign in successfully",
           variant: "success",
         });
-        router.push("/dashboard/chat");
+        form.reset();
         router.refresh();
+        router.push("/dashboard/chat");
       } else {
         toast({
           title: "Error",
@@ -68,7 +68,7 @@ const SignInForm = () => {
     } finally {
       setIsLoading(false);
     }
-  }
+  };
 
   return (
     <Form {...form}>
@@ -127,6 +127,7 @@ const SignInForm = () => {
         <div className="text-center mt-6">
           <Button
             className="bg-primary uppercase text-white border-2 border-primary rounded-[40px] text-2xl py-7 px-14 min-w-[255px]"
+            disabled={isLoading}
             type="submit"
           >
             {isLoading ? <Spinner /> : "Sign In"}
