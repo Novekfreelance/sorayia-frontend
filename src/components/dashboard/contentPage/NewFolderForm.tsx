@@ -1,6 +1,5 @@
 "use client";
 
-import UserStore from "@/app/store/AuthStore";
 import Spinner from "@/components/icons/Spinner";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogFooter } from "@/components/ui/dialog";
@@ -14,8 +13,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
+import UserStore from "@/store/AuthStore";
+import useContentDataStore from "@/store/ContentDataStore";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -33,9 +33,9 @@ interface NewFolderFormProps {
 
 //Sign Up form
 const NewForlderForm = ({ open, setOpen }: NewFolderFormProps) => {
-  const router = useRouter();
   const { toast } = useToast();
-  const [isLoading, setIsLoading] = useState(false);
+  const [buttonIsLoading, buttonSetIsLoading] = useState(false);
+  const { addData } = useContentDataStore();
   const { token } = UserStore();
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -45,7 +45,7 @@ const NewForlderForm = ({ open, setOpen }: NewFolderFormProps) => {
     },
   });
   const onSubmit = async (values: z.infer<typeof FormSchema>) => {
-    setIsLoading(true);
+    buttonSetIsLoading(true);
     // Post resquest
     try {
       const create_response = await fetch(
@@ -62,25 +62,26 @@ const NewForlderForm = ({ open, setOpen }: NewFolderFormProps) => {
         }
       );
       if (create_response.status === 200) {
-        router.refresh();
+        const newData = await create_response.json();
+        addData(newData);
         form.reset();
         setOpen(false);
-        // toast({
-        //   title: "Success",
-        //   description: "Folder created successfully",
-        //   variant: "success",
-        // });
+        toast({
+          title: "Success",
+          description: "Folder created successfully",
+          variant: "success",
+        });
       } else {
-        // toast({
-        //   title: "Error",
-        //   description: "An error occurred while creating the folder",
-        //   variant: "destructive",
-        // });
+        toast({
+          title: "Error",
+          description: "An error occurred while creating the folder",
+          variant: "destructive",
+        });
       }
     } catch (error) {
       console.log(error);
     } finally {
-      setIsLoading(false);
+      buttonSetIsLoading(false);
     }
   };
 
@@ -114,9 +115,9 @@ const NewForlderForm = ({ open, setOpen }: NewFolderFormProps) => {
                 <Button
                   className="bg-primary uppercase text-white border-2 border-none rounded text-xl-600 py-2 px-6"
                   type="submit"
-                  disabled={isLoading}
+                  disabled={buttonIsLoading}
                 >
-                  {isLoading ? <Spinner /> : "Create Folder"}
+                  {buttonIsLoading ? <Spinner /> : "Create Folder"}
                 </Button>
               </DialogFooter>
             </div>
