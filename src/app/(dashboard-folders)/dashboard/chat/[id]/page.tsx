@@ -2,6 +2,7 @@
 import ChatContent from "@/components/dashboard/chatPage/ChatContent";
 import ChatInput from "@/components/dashboard/chatPage/ChatInput";
 import ConversationActionBtn from "@/components/dashboard/chatPage/ConversationActionBtn";
+// import Breadcrumb from "@/components/ui/breadcrumb";
 import { FC } from "react";
 
 export type ConversationProps = {
@@ -17,7 +18,7 @@ const ConversationPage: FC<ConversationProps> = ({ params: { id } }) => {
       </div>
       <div className="flex flex-col w-full h-[94%]">
         <div className="flex items-center justify-between mt-3 py-3 px-2 shadow rounded border-solid border border-shadowColor bg-white">
-          <h3 className="text-xl-500 text-primary">Conversation {id}</h3>
+          <h3 className="text-xl-500 text-primary">Conversation</h3>
           <ConversationActionBtn />
         </div>
         <div className="flex flex-col flex-1 h-full w-full mt-3 px-2 overflow-hidden shadow rounded border border-solid border-shadowColor bg-white relative">
