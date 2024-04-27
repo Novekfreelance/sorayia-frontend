@@ -1,30 +1,46 @@
 "use client";
 
+import DeleteChatBtn from "@/components/dashboard/chatPage/DeleteChatBtn";
 import OpenYourConversationBtn from "@/components/dashboard/chatPage/OpenYourConversationBtn";
-import { ChatBullIcon, DeleteIcon, PencilIcon } from "@/components/icons/SvgIcons";
+import { ChatBullIcon, PencilIcon } from "@/components/icons/SvgIcons";
 import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
 
 export type ConversationData = {
   id: string;
-  ConversationName: string;
+  name: string;
+  bot: {
+    name: string;
+  };
 };
 
 export const columns: ColumnDef<ConversationData>[] = [
   {
-    accessorKey: "ConversationName",
+    accessorKey: "name",
     header: "Title",
-    cell: ({row}) => {
-      const conversationData= row.original;
+    cell: ({ row }) => {
+      const conversationData = row.original;
       return (
-        <div className="flex items-center justify-center gap-5">
+        <div className="flex items-center justify-start gap-5 line-clamp-2">
           <ChatBullIcon fill="#1D3E80" height={23} width={23} />
+          <h3 className="text-xl-500 text-primary">{conversationData.name}</h3>
+        </div>
+      );
+    },
+  },
+  {
+    accessorKey: "bot",
+    header: "Associated Bot",
+    cell: ({ row }) => {
+      const conversationData = row.original;
+      return (
+        <div className="flex items-center justify-start gap-5 line-clamp-2">
           <h3 className="text-xl-500 text-primary">
-            {conversationData.ConversationName}
+            {conversationData.bot.name}
           </h3>
         </div>
-      )
-    }
+      );
+    },
   },
   {
     id: "operations",
@@ -33,7 +49,7 @@ export const columns: ColumnDef<ConversationData>[] = [
       const conversationData = row.original;
 
       return (
-        <div className="space-x-1">
+        <div className="flex justify-center items-center gap-1 max-w-[120px]">
           <Button
             className="py-2 px-4 bg-transparent border-none hover:bg-accent"
             onClick={() => {
@@ -42,16 +58,7 @@ export const columns: ColumnDef<ConversationData>[] = [
           >
             <PencilIcon fill="#1D3E80" height={23} width={23} />
           </Button>
-          <Button
-            className="py-2 px-4 bg-transparent border-none hover:bg-accent"
-            onClick={() => {
-              console.log(
-                `Opening conversation: ${conversationData.ConversationName}`
-              );
-            }}
-          >
-            <DeleteIcon fill="#1D3E80" height={23} width={23} />
-          </Button>
+          <DeleteChatBtn id={conversationData.id} />
         </div>
       );
     },
@@ -61,10 +68,8 @@ export const columns: ColumnDef<ConversationData>[] = [
     header: "Action",
     cell: ({ row }) => {
       const conversationData = row.original;
-      
-      return (
-        <OpenYourConversationBtn ChatId={conversationData.id} />
-      );
+
+      return <OpenYourConversationBtn ChatId={conversationData.id} />;
     },
   },
 ];
