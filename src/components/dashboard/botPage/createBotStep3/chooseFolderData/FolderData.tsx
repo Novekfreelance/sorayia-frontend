@@ -2,8 +2,8 @@ import { columns } from "./columns";
 import { DataTable } from "./folder-data-table";
 
 import { ContentDataProps } from "@/app/(dashboard-folders)/dashboard/content/columns";
-import UserStore from "@/app/store/AuthStore";
 import Spinner from "@/components/icons/Spinner";
+import UserStore from "@/store/AuthStore";
 import { useEffect, useState } from "react";
 
 export default function FolderData() {

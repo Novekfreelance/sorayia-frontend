@@ -1,9 +1,8 @@
 "use client";
-import useSidebarStore from "@/app/store/SidebarStore";
 import { DEFAULT_SIDEBAR_WIDTH } from "@/constants/Sidebar/DefaultWidthConstant";
+import useSidebarStore from "@/store/SidebarStore";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-
 
 const useSidebarWidthEffect = () => {
   const pathname = usePathname();

@@ -1,8 +1,9 @@
 "use client";
-import UserStore from "@/app/store/AuthStore";
 import Spinner from "@/components/icons/Spinner";
-import { useEffect, useState } from "react";
-import { AvatarDataProps, columns } from "./columns";
+import UserStore from "@/store/AuthStore";
+import useAvatarDataStore from "@/store/AvatarDataStore";
+import { useEffect } from "react";
+import { columns } from "./columns";
 import { AvatarDataTable } from "./data-table";
 
 export const AvatarsData = () => {
@@ -10,20 +11,21 @@ export const AvatarsData = () => {
 
   return (
     <>
-      {isLoading && (
+      {isLoading ? (
         <div className="min-h-[444px] w-full flex items-center justify-center">
           <Spinner />
         </div>
+      ) : (
+        <AvatarDataTable columns={columns} data={data} />
       )}
-      {data.length > 0 && <AvatarDataTable columns={columns} data={data} />}
     </>
   );
 };
 
 export const GetAvatarData = () => {
   const { token } = UserStore();
-  const [data, setData] = useState<AvatarDataProps[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const { isLoading, setIsLoading, avatarData, setAvatarData } =
+    useAvatarDataStore();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,7 +42,7 @@ export const GetAvatarData = () => {
           }
         );
         const fetchedData = await response.json();
-        setData(fetchedData);
+        setAvatarData([...fetchedData]);
       } catch (error) {
         console.log(error);
       } finally {
@@ -48,7 +50,7 @@ export const GetAvatarData = () => {
       }
     };
     fetchData();
-  }, [token]);
+  }, [token, setIsLoading, setAvatarData]);
 
-  return { data, isLoading };
+  return { data: avatarData, isLoading };
 };

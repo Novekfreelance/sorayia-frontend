@@ -1,12 +1,10 @@
-import { ContentDataProps } from "@/app/(dashboard-folders)/dashboard/content/columns";
-import UserStore from "@/app/store/AuthStore";
-import { useEffect, useRef, useState } from "react";
+import UserStore from "@/store/AuthStore";
+import useContentDataStore from "@/store/ContentDataStore";
+import { useEffect } from "react";
 
 const useGetContentData = () => {
   const { token } = UserStore();
-  const [data, setData] = useState<ContentDataProps[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const refetchRef = useRef<() => void>(() => {});
+  const { data, setData, isLoading, setIsLoading } = useContentDataStore();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,7 +16,6 @@ const useGetContentData = () => {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
-              // "Cache-Control": "no-cache",
               Authorization: `Token ${token}`,
             },
           }
@@ -33,14 +30,9 @@ const useGetContentData = () => {
     };
 
     fetchData();
+  }, [token, setData, setIsLoading]);
 
-    // Set the refetch function
-    refetchRef.current = () => {
-      fetchData();
-    };
-  }, [token]);
-
-  return { data, isLoading, refetch: refetchRef.current }; // Return the refetch function
+  return { data, isLoading };
 };
 
 export default useGetContentData;
