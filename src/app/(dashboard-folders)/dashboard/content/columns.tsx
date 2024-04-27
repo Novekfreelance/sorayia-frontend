@@ -1,9 +1,9 @@
 "use client";
 
 import DeleteFolderBtn from "@/components/dashboard/contentPage/DeleteFolderBtn";
+import EditFolderBtn from "@/components/dashboard/contentPage/EditFolderBtn";
 import OpenFolderBtn from "@/components/dashboard/contentPage/OpenFolderBtn";
-import { FolderIcon, PencilIcon } from "@/components/icons/SvgIcons";
-import { Button } from "@/components/ui/button";
+import { FolderIcon } from "@/components/icons/SvgIcons";
 import { ColumnDef } from "@tanstack/react-table";
 
 export type ContentDataProps = {
@@ -18,7 +18,7 @@ export const columns: ColumnDef<ContentDataProps>[] = [
     cell: ({ row }) => {
       const contentData = row.original;
       return (
-        <div className="flex items-center justify-center gap-5">
+        <div className="flex items-center justify-start gap-5 ml-14 line-clamp-2">
           <FolderIcon fill="#999999" height={23} width={23} />
           <h3 className="text-xl-500 text-primary">{contentData.name}</h3>
         </div>
@@ -33,14 +33,7 @@ export const columns: ColumnDef<ContentDataProps>[] = [
 
       return (
         <div className="space-x-1">
-          <Button
-            className="py-2 px-4 bg-transparent border-none hover:bg-accent"
-            onClick={() => {
-              console.log(`Opening folder: ${contentData.id}`);
-            }}
-          >
-            <PencilIcon fill="#1D3E80" height={23} width={23} />
-          </Button>
+          <EditFolderBtn id={contentData.id} />
           <DeleteFolderBtn id={contentData.id} />
         </div>
       );
