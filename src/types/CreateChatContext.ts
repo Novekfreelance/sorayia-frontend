@@ -1,5 +1,4 @@
 interface Chat {
-  id: string;
   name: string;
 }
 
@@ -8,11 +7,9 @@ interface Bot {
 }
 
 interface CreateChatContext {
-  step: string;
   chat: Chat;
   bot: Bot;
-  setStep: (newStep: string) => void;
-  setBot: (newBot: Bot) => void;
+  setBotId: (newBot: Bot) => void;
   setChatName: (newChat: Chat) => void;
 }
 
