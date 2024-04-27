@@ -117,7 +117,11 @@ const NewForlderForm = ({ open, setOpen }: NewFolderFormProps) => {
                   type="submit"
                   disabled={buttonIsLoading}
                 >
-                  {buttonIsLoading ? <Spinner /> : "Create Folder"}
+                  {buttonIsLoading ? (
+                    <Spinner className="w-full h-full" />
+                  ) : (
+                    "Create Folder"
+                  )}
                 </Button>
               </DialogFooter>
             </div>

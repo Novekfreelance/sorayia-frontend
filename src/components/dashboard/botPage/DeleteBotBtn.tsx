@@ -65,7 +65,7 @@ const DeleteBotBtn: React.FC<DeleteBotBtnProps> = ({ id }) => {
       onClick={handleClick}
     >
       {isLoading ? (
-        <Spinner className="w-5 h-5" />
+        <Spinner className="!w-5 !h-5" />
       ) : (
         <DeleteIcon fill="#1D3E80" height={23} width={23} />
       )}
