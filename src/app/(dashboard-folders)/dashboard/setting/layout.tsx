@@ -1,9 +1,9 @@
 "use client";
 import { DataUsageIcon, UserIcon } from "@/components/icons/SvgIcons";
-import Link from "next/link";
-import { ReactNode, FC } from "react";
-import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { FC, ReactNode } from "react";
 
 type SettingsLayoutProps = {
   children: ReactNode;
@@ -12,7 +12,7 @@ type SettingsLayoutProps = {
 const Links = [
   {
     text: "Users",
-    href: "/dashboard/setting/users",
+    href: "/dashboard/setting",
     icon: <UserIcon fill="#1D3E80" height={30} width={30} />,
   },
   {
