@@ -1,8 +1,9 @@
 "use client";
-import UserStore from "@/app/store/AuthStore";
 import { DeleteIcon } from "@/components/icons/SvgIcons";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
+import UserStore from "@/store/AuthStore";
+import useContentDataStore from "@/store/ContentDataStore";
 import { useRouter } from "next/navigation";
 
 type DeleteFolderBtnProps = {
@@ -12,6 +13,7 @@ const DeleteFolderBtn: React.FC<DeleteFolderBtnProps> = ({ id }) => {
   const { token } = UserStore();
   const { toast } = useToast();
   const router = useRouter();
+  const { removeData } = useContentDataStore();
 
   const handleClick = async () => {
     try {
@@ -29,6 +31,7 @@ const DeleteFolderBtn: React.FC<DeleteFolderBtnProps> = ({ id }) => {
         }
       );
       if (response.status === 200) {
+        removeData(id);
         router.refresh();
         toast({
           title: "Success",
