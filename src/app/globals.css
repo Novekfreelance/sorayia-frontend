@@ -74,8 +74,8 @@ html {
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --success: 120 100% 40.2%;
-    --success-foreground: 210 40% 98%;
+    --success: 134 75% 72%;
+    --success-foreground: 153 40% 30%;
 
     --border: 214.3 31.8% 91.4%;
     --shadowColor: 0 0% 90%;
@@ -113,14 +113,5 @@ html {
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }
