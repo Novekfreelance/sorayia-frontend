@@ -1,6 +1,8 @@
 "use client";
 
-import { DeleteIcon, PencilIcon, ShareIcon } from "@/components/icons/SvgIcons";
+import DeleteBotBtn from "@/components/dashboard/botPage/DeleteBotBtn";
+import ShareBotBtn from "@/components/dashboard/botPage/ShareBotBtn";
+import { PencilIcon } from "@/components/icons/SvgIcons";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
@@ -27,14 +29,14 @@ export const columns: ColumnDef<BotDataProps>[] = [
 
       return (
         <div className="flex justify-center">
-          <Avatar>
+          <Avatar className="h-16 w-16">
             <AvatarImage
               className="rounded"
               src={BotData.avatar.url}
               alt="avatar"
             />
             <AvatarFallback>
-              {BotData.avatar.name.slice(0, 2).toLocaleUpperCase()}
+              {BotData.name.slice(0, 2).toLocaleUpperCase()}
             </AvatarFallback>
           </Avatar>
         </div>
@@ -86,22 +88,8 @@ export const columns: ColumnDef<BotDataProps>[] = [
           >
             <PencilIcon fill="#1D3E80" height={23} width={23} />
           </Button>
-          <Button
-            className="py-2 px-4 bg-transparent border-none hover:bg-accent"
-            onClick={() => {
-              console.log(`Opening conversation: ${BotData.id}`);
-            }}
-          >
-            <DeleteIcon fill="#1D3E80" height={23} width={23} />
-          </Button>
-          <Button
-            className="py-2 px-4 bg-transparent border-none hover:bg-accent"
-            onClick={() => {
-              console.log(`Opening conversation: ${BotData.id}`);
-            }}
-          >
-            <ShareIcon fill="#1D3E80" height={23} width={23} />
-          </Button>
+          <DeleteBotBtn id={BotData.id} />
+          <ShareBotBtn id={BotData.id} />
         </div>
       );
     },
