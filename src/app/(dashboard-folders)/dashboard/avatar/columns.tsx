@@ -1,6 +1,7 @@
 "use client";
 
-import { DeleteIcon, PencilIcon } from "@/components/icons/SvgIcons";
+import DeleteAvatarBtn from "@/components/dashboard/avatarPage/DeleteAvatarBtn";
+import { PencilIcon } from "@/components/icons/SvgIcons";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
@@ -62,14 +63,7 @@ export const columns: ColumnDef<AvatarDataProps>[] = [
           >
             <PencilIcon fill="#1D3E80" height={23} width={23} />
           </Button>
-          <Button
-            className="py-2 px-4 bg-transparent border-none hover:bg-accent"
-            onClick={() => {
-              console.log(`Opening folder: ${AvatarData.name}`);
-            }}
-          >
-            <DeleteIcon fill="#1D3E80" height={23} width={23} />
-          </Button>
+          <DeleteAvatarBtn id={AvatarData.id} />
         </div>
       );
     },
