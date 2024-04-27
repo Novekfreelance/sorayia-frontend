@@ -1,10 +1,10 @@
 "use client";
-import UserStore from "@/app/store/AuthStore";
 import Spinner from "@/components/icons/Spinner";
 import { DeleteIcon, UploadIcon } from "@/components/icons/SvgIcons";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { cn } from "@/lib/utils";
+import UserStore from "@/store/AuthStore";
 import { useState } from "react";
 import { useDropzone } from "react-dropzone";
 

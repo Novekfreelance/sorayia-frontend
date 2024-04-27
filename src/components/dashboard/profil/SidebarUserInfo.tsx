@@ -1,8 +1,8 @@
 "use client";
+import useSidebarStore from "@/store/SidebarStore";
 import Link from "next/link";
-import UserAvatar from "./UserAvatar";
-import useSidebarStore from "@/app/store/SidebarStore";
 import { usePathname } from "next/navigation";
+import UserAvatar from "./UserAvatar";
 
 const SidebarUserInfo = () => {
   const { sidebarWidth } = useSidebarStore();

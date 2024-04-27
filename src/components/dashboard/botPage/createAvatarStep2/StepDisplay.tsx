@@ -1,4 +1,4 @@
-import UseProcessContext from "@/app/store/CreateBotStore";
+import UseProcessContext from "@/store/CreateBotStore";
 import CreateBotStep1 from "../createBotStep1/CreateBotStep1";
 import CreateBotStep3 from "../createBotStep3/CreateBotStep3";
 import CreateBotStep2 from "./CreateBotStep2";

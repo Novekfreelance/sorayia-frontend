@@ -1,6 +1,6 @@
 "use client";
 import { AvatarDataProps } from "@/app/(dashboard-folders)/dashboard/avatar/columns";
-import UseProcessContext from "@/app/store/CreateBotStore";
+import UseProcessContext from "@/store/CreateBotStore";
 import { ColumnDef } from "@tanstack/react-table";
 import Image from "next/image";
 

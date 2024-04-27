@@ -1,6 +1,6 @@
 "use client";
-import UserStore from "@/app/store/AuthStore";
 import { FormSchema } from "@/constants/SignInFormSchemaConstant";
+import UserStore from "@/store/AuthStore";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useRouter } from "next/navigation";

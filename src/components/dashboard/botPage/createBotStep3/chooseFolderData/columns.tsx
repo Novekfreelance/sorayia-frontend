@@ -1,8 +1,8 @@
 "use client";
 
 import { ContentDataProps } from "@/app/(dashboard-folders)/dashboard/content/columns";
-import UseProcessContext from "@/app/store/CreateBotStore";
 import { Checkbox } from "@/components/ui/checkbox";
+import UseProcessContext from "@/store/CreateBotStore";
 import { ColumnDef } from "@tanstack/react-table";
 
 export const columns: ColumnDef<ContentDataProps>[] = [

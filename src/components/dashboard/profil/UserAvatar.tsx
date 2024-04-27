@@ -1,6 +1,6 @@
 "use client";
-import UserStore from "@/app/store/AuthStore";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import UserStore from "@/store/AuthStore";
 import { useEffect, useState } from "react";
 
 type UserAvatarProps = {

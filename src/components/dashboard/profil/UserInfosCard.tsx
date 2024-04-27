@@ -1,5 +1,5 @@
 "use client";
-import UserStore from "@/app/store/AuthStore";
+import UserStore from "@/store/AuthStore";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import SignOutBtn from "./SignOutBtn";

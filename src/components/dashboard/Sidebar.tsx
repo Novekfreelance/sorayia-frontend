@@ -1,5 +1,5 @@
 "use client";
-import useSidebarStore from "@/app/store/SidebarStore";
+import useSidebarStore from "@/store/SidebarStore";
 import Navbar from "./Navbar";
 
 const Sidebar = () => {

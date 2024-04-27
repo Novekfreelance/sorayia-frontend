@@ -1,9 +1,9 @@
 "use client";
-import UserStore from "@/app/store/AuthStore";
-import UseProcessContext from "@/app/store/CreateBotStore";
 import Spinner from "@/components/icons/Spinner";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
+import UserStore from "@/store/AuthStore";
+import UseProcessContext from "@/store/CreateBotStore";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 

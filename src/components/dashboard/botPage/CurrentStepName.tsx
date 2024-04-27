@@ -1,5 +1,5 @@
 "use client";
-import UseProcessContext from "@/app/store/CreateBotStore";
+import UseProcessContext from "@/store/CreateBotStore";
 
 const CurrentStepName = () => {
   const { step } = UseProcessContext();

@@ -1,5 +1,4 @@
 "use client";
-import UserStore from "@/app/store/AuthStore";
 import Spinner from "@/components/icons/Spinner";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,6 +10,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
+import UserStore from "@/store/AuthStore";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

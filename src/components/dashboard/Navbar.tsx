@@ -1,11 +1,11 @@
 "use client";
-import useSidebarStore from "@/app/store/SidebarStore";
 import useAvatarIsActive from "@/hooks/useAvatarLinkEffect";
 import useBotIsActive from "@/hooks/useBotLinkEffect";
 import useChatIsActive from "@/hooks/useChatLinkEffect";
 import useContentIsActive from "@/hooks/useContentLinkEffect";
-import useSettingIsActive from "@/hooks/useSettingLinkEffect";
+// import useSettingIsActive from "@/hooks/useSettingLinkEffect"; // features
 import useSidebarWidthEffect from "@/hooks/useSidebarWidthEffect";
+import useSidebarStore from "@/store/SidebarStore";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -15,7 +15,6 @@ import {
   ChatIcon,
   ContentIcon,
   QuestionIcon,
-  SettingIcon,
   UserIcon,
 } from "../icons/SvgIcons";
 import SidebarUserInfo from "./profil/SidebarUserInfo";
@@ -45,11 +44,11 @@ const routes = [
     icon: <UserIcon fill="#ffffff" height={29} width={29} />,
     path: "/dashboard/avatar",
   },
-  {
-    label: "Setting",
-    icon: <SettingIcon fill="#ffffff" height={29} width={29} />,
-    path: "/dashboard/setting/users",
-  },
+  // {
+  //   label: "Setting",
+  //   icon: <SettingIcon fill="#ffffff" height={29} width={29} />,
+  //   path: "/dashboard/setting",
+  // },
 ];
 
 const Navbar: FC<NavbarProps> = ({ style }) => {
@@ -59,7 +58,7 @@ const Navbar: FC<NavbarProps> = ({ style }) => {
   const pathname = usePathname();
   const isChatActive = useChatIsActive();
   const isContentActive = useContentIsActive();
-  const isSettingActive = useSettingIsActive();
+  // const isSettingActive = useSettingIsActive(); // features
   const isAvatarActive = useAvatarIsActive();
   const isBotActive = useBotIsActive();
   return (
@@ -73,6 +72,7 @@ const Navbar: FC<NavbarProps> = ({ style }) => {
             src="/sorayia-logo.webp"
             alt=""
             className="ml-[6px]"
+            priority
             width={80}
             height={81}
           />
@@ -109,11 +109,6 @@ const Navbar: FC<NavbarProps> = ({ style }) => {
                     }
                     ${
                       isContentActive && route.path === "/dashboard/content"
-                        ? navLinkActiveStyle
-                        : ""
-                    }
-                    ${
-                      isSettingActive && route.path === "/dashboard/setting"
                         ? navLinkActiveStyle
                         : ""
                     }
