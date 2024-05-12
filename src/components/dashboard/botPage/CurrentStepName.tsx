@@ -10,7 +10,7 @@ const CurrentStepName = () => {
       ? "Choice your avatar"
       : "Add knowledge";
   return (
-    <div className="absolute right-1">
+    <div>
       <span className="text-xl-400 text-gray-300">
         Step: {step} -
         <span className="text-primary text-xl-400">{currenStepName}</span>
