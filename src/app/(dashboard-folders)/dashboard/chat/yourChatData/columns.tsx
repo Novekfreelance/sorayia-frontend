@@ -53,7 +53,7 @@ export const columns: ColumnDef<ConversationData>[] = [
           <Button
             className="py-2 px-4 bg-transparent border-none hover:bg-accent"
             onClick={() => {
-              console.log(`Opening conversation: ${conversationData.id}`);
+              console.log(`Modification: ${conversationData.id}`);
             }}
           >
             <PencilIcon fill="#1D3E80" height={23} width={23} />
@@ -69,7 +69,12 @@ export const columns: ColumnDef<ConversationData>[] = [
     cell: ({ row }) => {
       const conversationData = row.original;
 
-      return <OpenYourConversationBtn ChatId={conversationData.id} />;
+      return (
+        <OpenYourConversationBtn
+          ChatId={conversationData.id}
+          ChatName={conversationData.name}
+        />
+      );
     },
   },
 ];
