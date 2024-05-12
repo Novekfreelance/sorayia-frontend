@@ -3,7 +3,7 @@ import { FC } from "react";
 interface IconProps {
   width: number;
   height: number;
-  fill: string;
+  fill?: string;
 }
 
 export const FacebookIcon: FC<IconProps> = ({ width, height, fill }) => {
@@ -481,6 +481,23 @@ export const MoreIcon: FC<IconProps> = ({ width, height, fill }) => {
         d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2Zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm-2 8c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2Z"
         clipRule="evenodd"
       />
+    </svg>
+  );
+};
+export const ArrowLeftIcon: FC<IconProps> = ({ width, height, fill }) => {
+  return (
+    <svg
+      width={width}
+      height={height}
+      fill={fill}
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="m10 19-7-7m0 0 7-7m-7 7h18" />
     </svg>
   );
 };
