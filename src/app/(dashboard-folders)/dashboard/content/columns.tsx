@@ -45,7 +45,12 @@ export const columns: ColumnDef<ContentDataProps>[] = [
     cell: ({ row }) => {
       const contentData = row.original;
 
-      return <OpenFolderBtn FolderId={contentData.id} />;
+      return (
+        <OpenFolderBtn
+          FolderId={contentData.id}
+          FolderName={contentData.name}
+        />
+      );
     },
   },
 ];
