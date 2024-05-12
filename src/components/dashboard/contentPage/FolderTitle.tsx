@@ -1,13 +1,18 @@
-import { FC } from "react"
+"use client";
+import useGetContentNameStore from "@/store/GetContentNameStore";
+import { useEffect, useState } from "react";
 
-type FolderTitleProps = {
-	id: string;
-}
+const FolderTitle = () => {
+  const ContentName = useGetContentNameStore((state) => state.contentName);
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+  return (
+    <h3 className="text-xl-500 text-primary">
+      {isClient ? <>{ContentName}</> : "Folder"}
+    </h3>
+  );
+};
 
-const FolderTitle: FC<FolderTitleProps> = ({id}) => {
-	return (
-		<h3 className="text-xl-500 text-primary">Folder&nbsp;{id}</h3>
-	)
-}
-
-export default FolderTitle
+export default FolderTitle;
