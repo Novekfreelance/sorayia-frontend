@@ -1,8 +1,9 @@
+import ContentBreadcrumb from "@/components/dashboard/contentPage/Breadcrumb";
 import FolderTitle from "@/components/dashboard/contentPage/FolderTitle";
-import { MoreIcon, FolderOpenIcon } from "@/components/icons/SvgIcons";
+import { FolderOpenIcon, MoreIcon } from "@/components/icons/SvgIcons";
 import { Input } from "@/components/ui/input";
 import { SearchIcon } from "lucide-react";
-import { ReactNode, FC } from "react";
+import { FC, ReactNode } from "react";
 import FilesData from "./FilesData";
 import { ContentFolderProps } from "./page";
 
@@ -16,20 +17,25 @@ const ContentRouteLayout: FC<ContentRouteProps & ContentFolderProps> = ({
 }) => {
   return (
     <div className="w-full h-full p-8">
-      <div className="flex justify-start items-center">
+      <div className="flex justify-start items-center relative">
         <h1 className="text-3xl-600 text-black">Content</h1>
+        <span className="absolute left-2/4 -translate-x-2/4 top-2/4 -translate-y-2/4">
+          <ContentBreadcrumb />
+        </span>
       </div>
       <div className="flex items-center justify-between mt-3 py-3 px-3 shadow rounded border-solid border border-shadowColor bg-white">
         <div className="flex items-center gap-2">
           <FolderOpenIcon width={25} height={25} fill="#999999" />
-          <FolderTitle id= {id}/>
+          <FolderTitle />
         </div>
         <MoreIcon width={20} height={20} fill="#999999" />
       </div>
       <div className="w-full min-h-[82%] mt-4 px-8 rounded border border-solid shadow border-shadowColor bg-white overflow-hidden">
         <div className="w-full text-center pt-4 space-y-2">
           <h2 className="text-2xl text-primary">Create Documents</h2>
-          <p className="text-xl-400 text-black text-center">You can create a new document in this folder by writing, uploading an existing document or importing a webpage
+          <p className="text-xl-400 text-black text-center">
+            You can create a new document in this folder by writing, uploading
+            an existing document or importing a webpage
           </p>
         </div>
         <div className="w-full flex flex-col items-center justify-center min-h-[200px] my-5">
